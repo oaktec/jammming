@@ -6,7 +6,7 @@
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "SearchArea SearchArea"
-    "SearchResults Playlist";
+    "Tracklist Playlist";
   grid-gap: 64px;
   flex: 1;
 }
