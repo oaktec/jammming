@@ -1,0 +1,24 @@
+.Track {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid #655dbb;
+  color: white;
+}
+
+.Track:last-child {
+  border-bottom: none;
+}
+
+.Track p {
+  font-weight: 500;
+  margin: 0.2rem;
+}
+
+.Track p.subtext {
+  font-size: 0.8rem;
+  /* darker gray */
+  color: #707070;
+}
