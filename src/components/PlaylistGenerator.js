@@ -1,11 +1,11 @@
 import React from "react";
 
-import SearchBar from "./SearchBar";
+import SearchArea from "./SearchArea";
 
 const PlaylistGenerator = () => {
   return (
     <div className="PlaylistGenerator">
-      <SearchBar />
+      <SearchArea />
     </div>
   );
 };
