@@ -1,5 +1,7 @@
 .Tracklist {
   grid-area: Tracklist;
+  justify-self: right;
+  width: 500px;
 }
 
 .Tracklist h2 {

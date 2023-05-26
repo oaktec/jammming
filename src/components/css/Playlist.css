@@ -1,3 +1,15 @@
 .Playlist {
   grid-area: Playlist;
 }
+
+input.playlist-name {
+  width: 90%;
+  margin: 0;
+  padding: 30px 20px;
+  background-color: rgba(24, 23, 46, 0.9);
+  color: #ecf2ff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
