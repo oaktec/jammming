@@ -13,3 +13,30 @@ input.playlist-name {
   font-size: 1.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+button.save-playlist-btn {
+  margin: 20px 0;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #655dbb;
+  color: #ecf2ff;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+button.save-playlist-btn:hover {
+  background-color: #4b428b;
+}
+
+button.save-playlist-btn:active {
+  background-color: #4b428b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
+}
+
+button.save-playlist-btn:disabled {
+  display: none;
+}
