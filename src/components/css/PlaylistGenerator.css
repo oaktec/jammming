@@ -1,0 +1,12 @@
+.PlaylistGenerator {
+  display: grid;
+  margin: 16px 64px;
+  min-width: 500px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "SearchArea SearchArea"
+    "SearchResults Playlist";
+  grid-gap: 64px;
+  flex: 1;
+}
