@@ -1,4 +1,7 @@
+import React from "react";
 import "./App.css";
+
+import PlaylistGenerator from "./components/PlaylistGenerator";
 
 function App() {
   return (
@@ -8,7 +11,9 @@ function App() {
           Ja<span>mmm</span>ing
         </h1>
       </header>
-      <main></main>
+      <main>
+        <PlaylistGenerator />
+      </main>
     </div>
   );
 }
