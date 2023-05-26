@@ -29,11 +29,26 @@ const PlaylistGenerator = () => {
     },
   ]);
 
+  const [playlistTracks, setPlaylistTracks] = useState([
+    {
+      id: 1,
+      name: "Track 1",
+      artist: "Artist 1",
+      album: "Album 1",
+    },
+    {
+      id: 2,
+      name: "Track 2",
+      artist: "Artist 2",
+      album: "Album 2",
+    },
+  ]);
+
   return (
     <div className="PlaylistGenerator">
       <SearchArea />
       <Tracklist searchResults={searchResults} />
-      <Playlist />
+      <Playlist playlistTracks={playlistTracks} />
     </div>
   );
 };
