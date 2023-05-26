@@ -4,7 +4,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        Ja<span>mmm</span>ing
+        <h1>
+          Ja<span>mmm</span>ing
+        </h1>
       </header>
       <main></main>
     </div>
