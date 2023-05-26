@@ -9,5 +9,7 @@
   font-size: 1.8rem;
   font-weight: 400;
   color: #ecf2ff;
-  margin: 16px;
+  padding: 16px;
+  margin: 0;
+  border-bottom: 4px solid #655dbb;
 }
