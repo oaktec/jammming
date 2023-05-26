@@ -2,11 +2,11 @@ import React from "react";
 import "./css/Tracklist.css";
 import SearchResults from "./SearchResults";
 
-const Tracklist = () => {
+const Tracklist = ({ searchResults }) => {
   return (
     <section className="Tracklist result-block">
       <h2>Results</h2>
-      <SearchResults />
+      <SearchResults searchResults={searchResults} />
     </section>
   );
 };
