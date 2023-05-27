@@ -1,15 +1,39 @@
 .Track {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #655dbb;
-  color: white;
 }
 
 .Track:last-child {
   border-bottom: none;
+}
+
+.track-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+}
+
+.Track button {
+  margin: 0.5rem;
+  border: none;
+  font-size: 2rem;
+  width: 2rem;
+  background-color: transparent;
+  color: #ecf2ff;
+  cursor: pointer;
+}
+
+.Track button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #655dbb;
+
+  transition: all 0.4s ease;
 }
 
 .Track p {

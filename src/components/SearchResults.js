@@ -11,7 +11,7 @@ const SearchResults = ({
   return (
     <section className="SearchResults result-block">
       <h2>Results</h2>
-      <Tracklist tracks={searchResults} />
+      <Tracklist tracks={searchResults} listActionType="add" />
     </section>
   );
 };

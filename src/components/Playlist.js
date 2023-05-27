@@ -9,7 +9,7 @@ const Playlist = ({ playlistTracks }) => {
   return (
     <section className="Playlist result-block">
       <input className="playlist-name" placeholder="Enter Playlist Name" />
-      <Tracklist tracks={playlistTracks} />
+      <Tracklist tracks={playlistTracks} listActionType="remove" />
 
       <button className="save-playlist-btn">SAVE TO SPOTIFY</button>
     </section>
