@@ -8,10 +8,6 @@ const SearchResults = ({
   playlistTracks,
   setPlaylistTracks,
 }) => {
-  const addTrackToPlaylist = (track) => {
-    setPlaylistTracks((playlistTracks) => [...playlistTracks, track]);
-  };
-
   return (
     <section className="SearchResults result-block">
       <h2>Results</h2>
