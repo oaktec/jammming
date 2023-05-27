@@ -2,13 +2,16 @@ import React from "react";
 import Track from "./Track";
 
 const Tracklist = ({ tracks, listActionType, onActionClick }) => {
+  console.log(tracks);
   return (
     <div className="Tracklist">
-      {tracks.map((track) => (
+      {tracks.map((track, index) => (
         <Track
           key={track.id}
           track={track}
-          action={listActionType === "add" ? "+" : "-"}
+          index={index}
+          actionDisplay={listActionType === "add" ? "+" : "-"}
+          onActionClick={onActionClick}
         />
       ))}
     </div>

@@ -44,11 +44,29 @@ const PlaylistGenerator = () => {
     },
   ]);
 
+  const addToPlaylist = (track) => {
+    const newPlaylistTracks = [...playlistTracks, track];
+    setPlaylistTracks(newPlaylistTracks);
+  };
+
+  const removeFromPlaylist = (trackIndex) => {
+    const newPlaylistTracks = playlistTracks.filter(
+      (t, index) => index !== trackIndex
+    );
+    setPlaylistTracks(newPlaylistTracks);
+  };
+
   return (
     <div className="PlaylistGenerator">
       <SearchArea />
-      <SearchResults searchResults={searchResults} />
-      <Playlist playlistTracks={playlistTracks} />
+      <SearchResults
+        addToPlaylist={addToPlaylist}
+        searchResults={searchResults}
+      />
+      <Playlist
+        removeFromPlaylist={removeFromPlaylist}
+        playlistTracks={playlistTracks}
+      />
     </div>
   );
 };
