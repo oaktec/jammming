@@ -1,6 +1,8 @@
 .PlaylistGenerator {
+  height: 100%;
   display: grid;
-  margin: 16px 64px;
+  box-sizing: border-box;
+  padding-bottom: 16px;
   min-width: 500px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr;
@@ -17,4 +19,5 @@
   border-radius: 8px;
   background-color: rgba(24, 23, 46, 0.9);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: auto;
 }
