@@ -1,7 +1,6 @@
 import React from "react";
 
 import Tracklist from "./Tracklist";
-import Track from "./Track";
 
 import "./css/Playlist.css";
 
