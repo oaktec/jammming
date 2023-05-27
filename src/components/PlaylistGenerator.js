@@ -5,7 +5,7 @@ import "./css/PlaylistGenerator.css";
 
 import SearchArea from "./SearchArea";
 import Playlist from "./Playlist";
-import Tracklist from "./Tracklist";
+import SearchResults from "./SearchResults";
 
 const PlaylistGenerator = () => {
   const [searchResults, setSearchResults] = useState([
@@ -47,7 +47,7 @@ const PlaylistGenerator = () => {
   return (
     <div className="PlaylistGenerator">
       <SearchArea />
-      <Tracklist searchResults={searchResults} />
+      <SearchResults searchResults={searchResults} />
       <Playlist playlistTracks={playlistTracks} />
     </div>
   );

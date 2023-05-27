@@ -1,13 +1,22 @@
 import React from "react";
-import Track from "./Track";
+import Tracklist from "./Tracklist";
 
-const SearchResults = ({ searchResults }) => {
+import "./css/SearchResults.css";
+
+const SearchResults = ({
+  searchResults,
+  playlistTracks,
+  setPlaylistTracks,
+}) => {
+  const addTrackToPlaylist = (track) => {
+    setPlaylistTracks((playlistTracks) => [...playlistTracks, track]);
+  };
+
   return (
-    <div className="SearchResults">
-      {searchResults.map((track) => (
-        <Track key={track.id} track={track} />
-      ))}
-    </div>
+    <section className="SearchResults result-block">
+      <h2>Results</h2>
+      <Tracklist tracks={searchResults} />
+    </section>
   );
 };
 
