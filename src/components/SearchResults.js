@@ -5,7 +5,6 @@ import "./css/SearchResults.css";
 
 const SearchResults = ({ searchResults, addToPlaylist }) => {
   const handleActionClick = (trackIndex) => {
-    console.log(trackIndex);
     addToPlaylist(searchResults[trackIndex]);
   };
 
