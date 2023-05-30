@@ -12,6 +12,7 @@ import Spotify from "../services/spotifyService";
 const PlaylistGenerator = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
   const search = async () => {
@@ -39,6 +40,12 @@ const PlaylistGenerator = () => {
     setPlaylistTracks(newPlaylistTracks);
   };
 
+  const savePlaylist = () => {
+    const trackURIs = playlistTracks.map((track) => track.uri);
+    Spotify.savePlaylist(playlistName, trackURIs);
+    setPlaylistTracks([]);
+  };
+
   return (
     <div className="PlaylistGenerator">
       <SearchArea
@@ -53,6 +60,8 @@ const PlaylistGenerator = () => {
       <Playlist
         removeFromPlaylist={removeFromPlaylist}
         playlistTracks={playlistTracks}
+        playlistName={playlistName}
+        setPlaylistName={setPlaylistName}
       />
     </div>
   );

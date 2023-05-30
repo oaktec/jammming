@@ -4,14 +4,24 @@ import Tracklist from "./Tracklist";
 
 import "./css/Playlist.css";
 
-const Playlist = ({ playlistTracks, removeFromPlaylist }) => {
+const Playlist = ({
+  playlistTracks,
+  removeFromPlaylist,
+  playlistName,
+  setPlaylistName,
+}) => {
   const handleActionClick = (trackIndex) => {
     removeFromPlaylist(trackIndex);
   };
 
   return (
     <section className="Playlist result-block">
-      <input className="playlist-name" placeholder="Enter Playlist Name" />
+      <input
+        value={playlistName}
+        onChange={(e) => setPlaylistName(e.target.value)}
+        className="playlist-name"
+        placeholder="Enter Playlist Name"
+      />
       <Tracklist
         tracks={playlistTracks}
         listActionType="remove"

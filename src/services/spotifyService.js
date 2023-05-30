@@ -76,6 +76,11 @@ const Spotify = {
       throw new Error(`Search request failed with status ${response.status}!`);
     }
   },
+  async createPlaylist(playlistName, tracks) {
+    await this.getUserId();
+
+    console.log(this._userId);
+  },
 };
 
 Spotify.handleParams();
