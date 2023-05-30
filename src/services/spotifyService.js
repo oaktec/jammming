@@ -73,6 +73,7 @@ const Spotify = {
         name: track.name,
         artist: track.artists[0].name,
         album: track.album.name,
+        uri: track.uri,
       }));
     } else {
       throw new Error(`Search request failed with status ${response.status}!`);
@@ -99,10 +100,31 @@ const Spotify = {
 
     if (response.ok) {
       const { id } = await response.json();
-      console.log("Playlist created with id:", id);
+      await this.addTracksToPlaylist(id, tracks);
     } else {
       throw new Error(
         `Create playlist request failed with status ${response.status}!`
+      );
+    }
+  },
+  async addTracksToPlaylist(playlistId, tracks) {
+    const response = await fetch(
+      `${BASE_URL}/v1/playlists/${playlistId}/tracks`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${this._accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uris: tracks,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Add tracks to playlist request failed with status ${response.status}`
       );
     }
   },
