@@ -15,11 +15,16 @@ const Playlist = ({
     removeFromPlaylist(trackIndex);
   };
 
+  const selectAllText = (e) => {
+    if (e.target.value === "New Playlist") e.target.select();
+  };
+
   return (
     <section className="Playlist result-block">
       <input
         value={playlistName}
         onChange={(e) => setPlaylistName(e.target.value)}
+        onFocus={selectAllText}
         className="playlist-name"
         placeholder="Enter Playlist Name"
       />
