@@ -42,7 +42,7 @@ const PlaylistGenerator = () => {
 
   const savePlaylist = () => {
     const trackURIs = playlistTracks.map((track) => track.uri);
-    Spotify.savePlaylist(playlistName, trackURIs);
+    Spotify.createPlaylist(playlistName, trackURIs);
     setPlaylistTracks([]);
   };
 
@@ -62,6 +62,7 @@ const PlaylistGenerator = () => {
         playlistTracks={playlistTracks}
         playlistName={playlistName}
         setPlaylistName={setPlaylistName}
+        onSaveClick={savePlaylist}
       />
     </div>
   );

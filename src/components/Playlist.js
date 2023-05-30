@@ -9,6 +9,7 @@ const Playlist = ({
   removeFromPlaylist,
   playlistName,
   setPlaylistName,
+  onSaveClick,
 }) => {
   const handleActionClick = (trackIndex) => {
     removeFromPlaylist(trackIndex);
@@ -28,7 +29,9 @@ const Playlist = ({
         onActionClick={handleActionClick}
       />
 
-      <button className="save-playlist-btn">SAVE TO SPOTIFY</button>
+      <button onClick={onSaveClick} className="save-playlist-btn">
+        SAVE TO SPOTIFY
+      </button>
     </section>
   );
 };

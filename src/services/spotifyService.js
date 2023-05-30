@@ -51,8 +51,10 @@ const Spotify = {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const redirectUri = "http://localhost:3000/";
 
+    const scopes = "playlist-modify-private";
+
     // login to spotify and get access token and id
-    window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+    window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=${scopes}&redirect_uri=${redirectUri}`;
   },
   async search(term) {
     // Make sure there is a valid access token.
@@ -79,7 +81,30 @@ const Spotify = {
   async createPlaylist(playlistName, tracks) {
     await this.getUserId();
 
-    console.log(this._userId);
+    const response = await fetch(
+      `${BASE_URL}/v1/users/${this._userId}/playlists`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${this._accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: playlistName,
+          description: "Playlist created with Jammming",
+          public: false,
+        }),
+      }
+    );
+
+    if (response.ok) {
+      const { id } = await response.json();
+      console.log("Playlist created with id:", id);
+    } else {
+      throw new Error(
+        `Create playlist request failed with status ${response.status}!`
+      );
+    }
   },
 };
 
