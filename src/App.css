@@ -26,6 +26,10 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 4.5rem;
   height: 10vh;
   color: #ecf2ff;
   padding: 1px 50px;
