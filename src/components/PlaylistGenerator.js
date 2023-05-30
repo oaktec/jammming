@@ -10,43 +10,16 @@ import SearchResults from "./SearchResults";
 import Spotify from "../services/spotifyService";
 
 const PlaylistGenerator = () => {
-  Spotify.search("test").then((res) => console.log(res));
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const [searchResults, setSearchResults] = useState([
-    {
-      id: 1,
-      name: "Track 1",
-      artist: "Artist 1",
-      album: "Album 1",
-    },
-    {
-      id: 2,
-      name: "Track 2",
-      artist: "Artist 2",
-      album: "Album 2",
-    },
-    {
-      id: 3,
-      name: "Track 3",
-      artist: "Artist 3",
-      album: "Album 3",
-    },
-  ]);
+  const search = async () => {
+    if (!searchTerm) return;
 
-  const [playlistTracks, setPlaylistTracks] = useState([
-    {
-      id: 1,
-      name: "Track 1",
-      artist: "Artist 1",
-      album: "Album 1",
-    },
-    {
-      id: 2,
-      name: "Track 2",
-      artist: "Artist 2",
-      album: "Album 2",
-    },
-  ]);
+    const results = await Spotify.search(searchTerm);
+    setSearchResults(results);
+  };
 
   const addToPlaylist = (track) => {
     const newPlaylistTracks = [...playlistTracks, track];
@@ -62,7 +35,11 @@ const PlaylistGenerator = () => {
 
   return (
     <div className="PlaylistGenerator">
-      <SearchArea />
+      <SearchArea
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        onSearchClick={search}
+      />
       <SearchResults
         addToPlaylist={addToPlaylist}
         searchResults={searchResults}
