@@ -20,8 +20,12 @@ const PlaylistGenerator = () => {
       return;
     }
 
-    const results = await Spotify.search(searchTerm);
-    setSearchResults(results);
+    try {
+      const results = await Spotify.search(searchTerm);
+      setSearchResults(results);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const addToPlaylist = (track) => {
@@ -30,9 +34,8 @@ const PlaylistGenerator = () => {
   };
 
   const removeFromPlaylist = (trackIndex) => {
-    const newPlaylistTracks = playlistTracks.filter(
-      (t, index) => index !== trackIndex
-    );
+    const newPlaylistTracks = [...playlistTracks];
+    newPlaylistTracks.splice(trackIndex, 1);
     setPlaylistTracks(newPlaylistTracks);
   };
 
