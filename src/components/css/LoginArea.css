@@ -1,0 +1,30 @@
+.LoginArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  grid-area: SearchArea;
+}
+
+.LoginArea button {
+  margin: 20px 0;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #65bb5d;
+  color: #ecf2ff;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.LoginArea button:hover {
+  background-color: #4b8b42;
+}
+
+.LoginArea button:active {
+  background-color: #4b8b42;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
+}
