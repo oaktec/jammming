@@ -25,6 +25,35 @@ const Spotify = {
 
     this.login();
   },
+  async getUserId() {
+    if (this._userId) {
+      return;
+    }
+    // Make sure there is a valid access token.
+    await this.getAccessToken();
+
+    const response = await fetch(`${BASE_URL}/v1/me`, {
+      headers: {
+        Authorization: `Bearer ${this._accessToken}`,
+      },
+    });
+
+    if (response.ok) {
+      const { id } = await response.json();
+      this._userId = id;
+    } else {
+      throw new Error(
+        `Get user id request failed with status ${response.status}!`
+      );
+    }
+  },
+  async login() {
+    const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+    const redirectUri = "http://localhost:3000/";
+
+    // login to spotify and get access token and id
+    window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+  },
   async search(term) {
     // Make sure there is a valid access token.
     await this.getAccessToken();
@@ -46,13 +75,6 @@ const Spotify = {
     } else {
       throw new Error(`Search request failed with status ${response.status}!`);
     }
-  },
-  async login() {
-    const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-    const redirectUri = "http://localhost:3000/";
-
-    // login to spotify and get access token and id
-    window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
   },
 };
 
