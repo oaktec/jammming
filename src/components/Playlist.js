@@ -34,7 +34,13 @@ const Playlist = ({
         onActionClick={handleActionClick}
       />
 
-      <button onClick={onSaveClick} className="save-playlist-btn">
+      <button
+        onClick={(e) => {
+          onSaveClick(e);
+          setPlaylistName("New Playlist");
+        }}
+        className="save-playlist-btn"
+      >
         SAVE TO SPOTIFY
       </button>
     </section>
