@@ -7,7 +7,11 @@ import SearchArea from "./SearchArea";
 import Playlist from "./Playlist";
 import SearchResults from "./SearchResults";
 
+import Spotify from "../services/spotifyService";
+
 const PlaylistGenerator = () => {
+  Spotify.getAccessToken();
+
   const [searchResults, setSearchResults] = useState([
     {
       id: 1,
