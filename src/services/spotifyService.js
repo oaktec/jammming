@@ -5,6 +5,8 @@ const Spotify = {
   _tokenExpirationTime: null,
   _userId: null,
 
+  onLoginCallback: null,
+
   handleParams() {
     const accessToken = window.location.href.match(/access_token=([^&]*)/);
     const expiresIn = window.location.href.match(/expires_in=([^&]*)/);
@@ -15,6 +17,10 @@ const Spotify = {
 
       // clear url
       window.history.pushState("Access Token", null, "/");
+
+      if (this.onLoginCallback) {
+        this.onLoginCallback();
+      }
     }
   },
   async getAccessToken() {
@@ -46,6 +52,9 @@ const Spotify = {
         `Get user id request failed with status ${response.status}!`
       );
     }
+  },
+  async isLoggedIn() {
+    return !!this._accessToken;
   },
   async login() {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -128,8 +137,10 @@ const Spotify = {
       );
     }
   },
+  init(onLoginCallback) {
+    this.onLoginCallback = onLoginCallback;
+    this.handleParams();
+  },
 };
-
-Spotify.handleParams();
 
 export default Spotify;

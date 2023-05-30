@@ -1,9 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./css/PlaylistGenerator.css";
 
 import SearchArea from "./SearchArea";
+import LoginArea from "./LoginArea";
 import Playlist from "./Playlist";
 import SearchResults from "./SearchResults";
 
@@ -14,6 +15,15 @@ const PlaylistGenerator = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  // Initialize Spotify API wrapper
+  useEffect(() => {
+    Spotify.init(() => {
+      console.log("callback fired");
+      setLoggedIn(true);
+    });
+  }, []);
 
   const search = async () => {
     if (!searchTerm) {
@@ -46,13 +56,22 @@ const PlaylistGenerator = () => {
     setPlaylistTracks([]);
   };
 
+  const handleLoginClick = () => {
+    Spotify.login();
+    setLoggedIn(true);
+  };
+
   return (
     <div className="PlaylistGenerator">
-      <SearchArea
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        onSearchClick={search}
-      />
+      {loggedIn ? (
+        <SearchArea
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          onSearchClick={search}
+        />
+      ) : (
+        <LoginArea login={handleLoginClick} />
+      )}
       <SearchResults
         addToPlaylist={addToPlaylist}
         searchResults={searchResults}
