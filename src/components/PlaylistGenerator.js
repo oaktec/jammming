@@ -10,7 +10,7 @@ import SearchResults from "./SearchResults";
 import Spotify from "../services/spotifyService";
 
 const PlaylistGenerator = () => {
-  Spotify.getAccessToken();
+  Spotify.search("test").then((res) => console.log(res));
 
   const [searchResults, setSearchResults] = useState([
     {
