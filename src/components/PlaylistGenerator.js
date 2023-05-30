@@ -15,7 +15,10 @@ const PlaylistGenerator = () => {
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
   const search = async () => {
-    if (!searchTerm) return;
+    if (!searchTerm) {
+      alert("Please enter a search term!");
+      return;
+    }
 
     const results = await Spotify.search(searchTerm);
     setSearchResults(results);
