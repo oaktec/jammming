@@ -144,3 +144,4 @@ const Spotify = {
 };
 
 export default Spotify;
+export { makeRequest };
