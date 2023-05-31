@@ -39,12 +39,12 @@ const Spotify = {
 
       // clear url
       window.history.pushState("Access Token", null, "/");
-
       if (this.onLoginCallback) {
         this.onLoginCallback();
       }
     }
   },
+
   async getAccessToken() {
     // If the access token is already set and has not expired, return early.
     if (this._accessToken && Date.now() < this._tokenExpirationTime) {
@@ -53,6 +53,7 @@ const Spotify = {
 
     this.login();
   },
+
   async getUserId() {
     if (this._userId) {
       return;
@@ -63,27 +64,30 @@ const Spotify = {
     const response = await makeRequest(`${BASE_URL}/v1/me`, "GET", {
       Authorization: `Bearer ${this._accessToken}`,
     });
-
     this._userId = response.id;
   },
+
   async isLoggedIn() {
     return !!this._accessToken;
   },
+
   async login() {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const redirectUri = process.env.REACT_APP_SPOTIFY_REDIRECT_URI;
-
     const scopes = "playlist-modify-private";
 
     // login to spotify and get access token and id
-    window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=${scopes}&redirect_uri=${redirectUri}`;
+    window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=${encodeURIComponent(
+      scopes
+    )}&redirect_uri=${encodeURIComponent(redirectUri)}`;
   },
+
   async search(term) {
     // Make sure there is a valid access token.
     await this.getAccessToken();
 
     const response = await makeRequest(
-      `${BASE_URL}/v1/search?type=track&q=${term}`,
+      `${BASE_URL}/v1/search?type=track&q=${encodeURIComponent(term)}`,
       "GET",
       {
         Authorization: `Bearer ${this._accessToken}`,
@@ -98,6 +102,7 @@ const Spotify = {
       uri: track.uri,
     }));
   },
+
   async createPlaylist(playlistName, tracks) {
     await this.getUserId();
 
@@ -117,6 +122,7 @@ const Spotify = {
 
     await this.addTracksToPlaylist(response.id, tracks);
   },
+
   async addTracksToPlaylist(playlistId, tracks) {
     await makeRequest(
       `${BASE_URL}/v1/playlists/${playlistId}/tracks`,
@@ -130,6 +136,7 @@ const Spotify = {
       })
     );
   },
+
   init(onLoginCallback) {
     this.onLoginCallback = onLoginCallback;
     this.handleParams();
