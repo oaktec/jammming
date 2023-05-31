@@ -1,4 +1,4 @@
-import originalSpotify, { makeRequest } from "../spotifyService";
+import originalSpotify from "../spotifyService";
 
 console.error = jest.fn();
 
