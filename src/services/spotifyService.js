@@ -1,5 +1,27 @@
 const BASE_URL = "https://api.spotify.com";
 
+const makeRequest = async (url, method = "GET", headers = {}, body = null) => {
+  try {
+    const response = await fetch(url, {
+      method,
+      headers,
+      body,
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      throw new Error(
+        `Request failed with status ${response.status}: ${response.statusText}`
+      );
+    }
+  } catch (err) {
+    console.error("Request failed:", err);
+    throw err;
+  }
+};
+
 const Spotify = {
   _accessToken: null,
   _tokenExpirationTime: null,
@@ -38,20 +60,11 @@ const Spotify = {
     // Make sure there is a valid access token.
     await this.getAccessToken();
 
-    const response = await fetch(`${BASE_URL}/v1/me`, {
-      headers: {
-        Authorization: `Bearer ${this._accessToken}`,
-      },
+    const response = await makeRequest(`${BASE_URL}/v1/me`, "GET", {
+      Authorization: `Bearer ${this._accessToken}`,
     });
 
-    if (response.ok) {
-      const { id } = await response.json();
-      this._userId = id;
-    } else {
-      throw new Error(
-        `Get user id request failed with status ${response.status}!`
-      );
-    }
+    this._userId = response.id;
   },
   async isLoggedIn() {
     return !!this._accessToken;
@@ -69,73 +82,53 @@ const Spotify = {
     // Make sure there is a valid access token.
     await this.getAccessToken();
 
-    const response = await fetch(`${BASE_URL}/v1/search?type=track&q=${term}`, {
-      headers: {
+    const response = await makeRequest(
+      `${BASE_URL}/v1/search?type=track&q=${term}`,
+      "GET",
+      {
         Authorization: `Bearer ${this._accessToken}`,
-      },
-    });
+      }
+    );
 
-    if (response.ok) {
-      const { tracks } = await response.json();
-      return tracks.items.map((track) => ({
-        id: track.id,
-        name: track.name,
-        artist: track.artists[0].name,
-        album: track.album.name,
-        uri: track.uri,
-      }));
-    } else {
-      throw new Error(`Search request failed with status ${response.status}!`);
-    }
+    return response.tracks.items.map((track) => ({
+      id: track.id,
+      name: track.name,
+      artist: track.artists[0].name,
+      album: track.album.name,
+      uri: track.uri,
+    }));
   },
   async createPlaylist(playlistName, tracks) {
     await this.getUserId();
 
-    const response = await fetch(
+    const response = await makeRequest(
       `${BASE_URL}/v1/users/${this._userId}/playlists`,
+      "POST",
       {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${this._accessToken}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: playlistName,
-          description: "Playlist created with Jammming",
-          public: false,
-        }),
-      }
+        Authorization: `Bearer ${this._accessToken}`,
+        "Content-Type": "application/json",
+      },
+      JSON.stringify({
+        name: playlistName,
+        description: "Playlist created with Jammming",
+        public: false,
+      })
     );
 
-    if (response.ok) {
-      const { id } = await response.json();
-      await this.addTracksToPlaylist(id, tracks);
-    } else {
-      throw new Error(
-        `Create playlist request failed with status ${response.status}!`
-      );
-    }
+    await this.addTracksToPlaylist(response.id, tracks);
   },
   async addTracksToPlaylist(playlistId, tracks) {
-    const response = await fetch(
+    await makeRequest(
       `${BASE_URL}/v1/playlists/${playlistId}/tracks`,
+      "POST",
       {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${this._accessToken}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          uris: tracks,
-        }),
-      }
+        Authorization: `Bearer ${this._accessToken}`,
+        "Content-Type": "application/json",
+      },
+      JSON.stringify({
+        uris: tracks,
+      })
     );
-
-    if (!response.ok) {
-      throw new Error(
-        `Add tracks to playlist request failed with status ${response.status}`
-      );
-    }
   },
   init(onLoginCallback) {
     this.onLoginCallback = onLoginCallback;
