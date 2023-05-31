@@ -1,27 +1,5 @@
 const BASE_URL = "https://api.spotify.com";
 
-const makeRequest = async (url, method = "GET", headers = {}, body = null) => {
-  try {
-    const response = await fetch(url, {
-      method,
-      headers,
-      body,
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      throw new Error(
-        `Request failed with status ${response.status}: ${response.statusText}`
-      );
-    }
-  } catch (err) {
-    console.error("Request failed:", err);
-    throw err;
-  }
-};
-
 const Spotify = {
   _accessToken: null,
   _tokenExpirationTime: null,
@@ -29,7 +7,29 @@ const Spotify = {
 
   onLoginCallback: null,
 
-  handleParams() {
+  async makeRequest(url, method = "GET", headers = {}, body = null) {
+    try {
+      const response = await fetch(url, {
+        method,
+        headers,
+        body,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        throw new Error(
+          `Request failed with status ${response.status}: ${response.statusText}`
+        );
+      }
+    } catch (err) {
+      console.error("Request failed:", err);
+      throw err;
+    }
+  },
+
+  handleURLParams() {
     const accessToken = window.location.href.match(/access_token=([^&]*)/);
     const expiresIn = window.location.href.match(/expires_in=([^&]*)/);
 
@@ -45,33 +45,7 @@ const Spotify = {
     }
   },
 
-  async getAccessToken() {
-    // If the access token is already set and has not expired, return early.
-    if (this._accessToken && Date.now() < this._tokenExpirationTime) {
-      return;
-    }
-
-    this.login();
-  },
-
-  async getUserId() {
-    if (this._userId) {
-      return;
-    }
-    // Make sure there is a valid access token.
-    await this.getAccessToken();
-
-    const response = await makeRequest(`${BASE_URL}/v1/me`, "GET", {
-      Authorization: `Bearer ${this._accessToken}`,
-    });
-    this._userId = response.id;
-  },
-
-  async isLoggedIn() {
-    return !!this._accessToken;
-  },
-
-  async login() {
+  login() {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const redirectUri = process.env.REACT_APP_SPOTIFY_REDIRECT_URI;
     const scopes = "playlist-modify-private";
@@ -82,17 +56,52 @@ const Spotify = {
     )}&redirect_uri=${encodeURIComponent(redirectUri)}`;
   },
 
+  ensureLoginToken() {
+    // If the access token is already set and has not expired, return early.
+    if (this._accessToken && Date.now() < this._tokenExpirationTime) {
+      return;
+    }
+
+    this.login();
+  },
+
+  async ensureUserId() {
+    if (this._userId) {
+      return;
+    }
+    // Make sure there is a valid access token.
+    this.ensureLoginToken();
+
+    const response = await this.makeRequest(`${BASE_URL}/v1/me`, "GET", {
+      Authorization: `Bearer ${this._accessToken}`,
+    });
+
+    if (!response.id) {
+      throw new Error("Response did not contain a user ID!");
+    }
+
+    this._userId = response.id;
+  },
+
+  async isLoggedIn() {
+    return !!this._accessToken;
+  },
+
   async search(term) {
     // Make sure there is a valid access token.
-    await this.getAccessToken();
+    this.ensureLoginToken();
 
-    const response = await makeRequest(
+    const response = await this.makeRequest(
       `${BASE_URL}/v1/search?type=track&q=${encodeURIComponent(term)}`,
       "GET",
       {
         Authorization: `Bearer ${this._accessToken}`,
       }
     );
+
+    if (!response.tracks) {
+      throw new Error("Response did not contain any tracks!");
+    }
 
     return response.tracks.items.map((track) => ({
       id: track.id,
@@ -104,9 +113,9 @@ const Spotify = {
   },
 
   async createPlaylist(playlistName, tracks) {
-    await this.getUserId();
+    await this.ensureUserId();
 
-    const response = await makeRequest(
+    const response = await this.makeRequest(
       `${BASE_URL}/v1/users/${this._userId}/playlists`,
       "POST",
       {
@@ -120,11 +129,15 @@ const Spotify = {
       })
     );
 
+    if (!response.id) {
+      throw new Error("Response did not contain a playlist ID!");
+    }
+
     await this.addTracksToPlaylist(response.id, tracks);
   },
 
   async addTracksToPlaylist(playlistId, tracks) {
-    await makeRequest(
+    await this.makeRequest(
       `${BASE_URL}/v1/playlists/${playlistId}/tracks`,
       "POST",
       {
@@ -139,9 +152,8 @@ const Spotify = {
 
   init(onLoginCallback) {
     this.onLoginCallback = onLoginCallback;
-    this.handleParams();
+    this.handleURLParams();
   },
 };
 
 export default Spotify;
-export { makeRequest };
