@@ -38,5 +38,9 @@ button.save-playlist-btn:active {
 }
 
 button.save-playlist-btn:disabled {
-  display: none;
+  background-color: #655dbb;
+  color: #b5b9c3;
+  box-shadow: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
