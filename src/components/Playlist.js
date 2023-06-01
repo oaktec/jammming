@@ -29,11 +29,16 @@ const Playlist = ({
       .classList.remove("highlight-input");
   };
 
+  const handlePlaylistNameChange = (e) => {
+    setPlaylistName(e.target.value);
+    if (e.target.value !== "") clearHighlightNameInput();
+  };
+
   return (
     <section className="Playlist result-block">
       <input
         value={playlistName}
-        onChange={(e) => setPlaylistName(e.target.value)}
+        onChange={handlePlaylistNameChange}
         onFocus={selectAllText}
         className="playlist-name"
         placeholder="Enter Playlist Name"
