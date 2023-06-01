@@ -6,7 +6,7 @@
   grid-area: SearchArea;
 }
 
-.btn-wrapper {
+.search-area .btn-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -3,6 +3,7 @@ import "./css/SearchArea.css";
 
 const SearchArea = ({ searchTerm, setSearchTerm, onSearchClick }) => {
   const handleSearchTermChange = (e) => {
+    if (e.target.value !== "") clearHighlightSearchInput();
     setSearchTerm(e.target.value);
   };
 

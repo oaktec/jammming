@@ -1,9 +1,11 @@
 .Playlist {
   grid-area: Playlist;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
 }
 
 input.playlist-name {
-  width: 90%;
   margin: 0;
   padding: 30px 20px;
   background-color: rgba(24, 23, 46, 0.9);
@@ -15,6 +17,13 @@ input.playlist-name {
 
   /* set transparent outline for highlight animation */
   outline: 2px solid transparent;
+}
+
+.Playlist .btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 24rem;
 }
 
 input.highlight-input {
