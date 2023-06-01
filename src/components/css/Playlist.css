@@ -12,6 +12,14 @@ input.playlist-name {
   border-radius: 25px;
   font-size: 1.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  outline: 2px solid transparent;
+}
+
+input.highlight-input {
+  outline: 2px solid rgba(255, 0, 0, 0.5);
+  outline-offset: 2px;
+  transition: outline 0.5s ease;
 }
 
 button.save-playlist-btn {

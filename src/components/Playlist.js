@@ -19,6 +19,16 @@ const Playlist = ({
     if (e.target.value === "New Playlist") e.target.select();
   };
 
+  const highlightNameInput = () => {
+    document.querySelector(".playlist-name").classList.add("highlight-input");
+  };
+
+  const clearHighlightNameInput = () => {
+    document
+      .querySelector(".playlist-name")
+      .classList.remove("highlight-input");
+  };
+
   return (
     <section className="Playlist result-block">
       <input
@@ -34,20 +44,30 @@ const Playlist = ({
         onActionClick={handleActionClick}
       />
 
-      <button
-        onClick={(e) => {
-          onSaveClick(e);
-          setPlaylistName("New Playlist");
+      <div
+        class="btn-wrapper"
+        onMouseEnter={() => {
+          if (!playlistName) highlightNameInput();
         }}
-        className={
-          playlistTracks.length > 0
-            ? "save-playlist-btn"
-            : "save-playlist-btn hide-btn"
-        }
-        disabled={!playlistName}
+        onMouseLeave={() => {
+          clearHighlightNameInput();
+        }}
       >
-        SAVE PLAYLIST TO SPOTIFY
-      </button>
+        <button
+          onClick={(e) => {
+            onSaveClick(e);
+            setPlaylistName("New Playlist");
+          }}
+          className={
+            playlistTracks.length > 0
+              ? "save-playlist-btn"
+              : "save-playlist-btn hide-btn"
+          }
+          disabled={!playlistName}
+        >
+          SAVE PLAYLIST TO SPOTIFY
+        </button>
+      </div>
     </section>
   );
 };
