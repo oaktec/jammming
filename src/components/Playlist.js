@@ -10,7 +10,6 @@ const Playlist = ({
   playlistName,
   setPlaylistName,
   onSaveClick,
-  disableSaveButton,
 }) => {
   const handleActionClick = (trackIndex) => {
     removeFromPlaylist(trackIndex);
@@ -41,7 +40,7 @@ const Playlist = ({
           setPlaylistName("New Playlist");
         }}
         className="save-playlist-btn"
-        disabled={disableSaveButton()}
+        disabled={playlistTracks.length === 0 || !playlistName}
       >
         SAVE PLAYLIST TO SPOTIFY
       </button>

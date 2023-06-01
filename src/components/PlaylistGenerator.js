@@ -86,7 +86,6 @@ const PlaylistGenerator = () => {
         playlistName={playlistName}
         setPlaylistName={setPlaylistName}
         onSaveClick={savePlaylist}
-        disableSaveButton={disableSaveButton}
       />
     </div>
   );
