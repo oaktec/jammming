@@ -61,10 +61,6 @@ const PlaylistGenerator = () => {
     setLoggedIn(true);
   };
 
-  const disableSaveButton = () => {
-    return playlistTracks.length === 0 || !playlistName;
-  };
-
   return (
     <div className="PlaylistGenerator">
       {loggedIn ? (
