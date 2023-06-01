@@ -1,4 +1,4 @@
-.SearchArea {
+.search-area {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +6,15 @@
   grid-area: SearchArea;
 }
 
-input.SearchBar {
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 12rem;
+  max-width: 500px;
+}
+
+input.search-bar {
   width: 100%;
   max-width: 500px;
   margin: 20px 0;
@@ -15,9 +23,17 @@ input.SearchBar {
   border-radius: 25px;
   font-size: 1.2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  /* set transparent outline for highlight animation */
+  outline: 2px solid transparent;
 }
 
-.SearchArea button {
+input.search-bar.highlight-input {
+  outline: 2px solid rgba(255, 0, 0, 0.8);
+  transition: outline 0.5s ease;
+}
+
+.search-area button {
   margin: 20px 0;
   padding: 14px 40px;
   border: none;
@@ -31,11 +47,19 @@ input.SearchBar {
   transition: background-color 0.2s ease;
 }
 
-.SearchArea button:hover {
+.search-area button:hover {
   background-color: #4b428b;
 }
 
-.SearchArea button:active {
+.search-area button:active {
   background-color: #4b428b;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
+}
+
+.search-area button:disabled {
+  background-color: #131124;
+  color: #b5b9c3;
+  box-shadow: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }

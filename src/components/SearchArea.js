@@ -6,17 +6,39 @@ const SearchArea = ({ searchTerm, setSearchTerm, onSearchClick }) => {
     setSearchTerm(e.target.value);
   };
 
+  const highlightSearchInput = () => {
+    document.querySelector(".search-bar").classList.add("highlight-input");
+  };
+
+  const clearHighlightSearchInput = () => {
+    document.querySelector(".search-bar").classList.remove("highlight-input");
+  };
+
   return (
-    <section className="SearchArea">
+    <section className="search-area">
       <input
-        className="SearchBar"
+        className="search-bar"
         value={searchTerm}
         onChange={handleSearchTermChange}
         placeholder="Enter A Song, Album, or Artist"
       />
-      <button onClick={onSearchClick} className="SearchButton">
-        SEARCH
-      </button>
+      <div
+        class="btn-wrapper"
+        onMouseEnter={() => {
+          if (!searchTerm) highlightSearchInput();
+        }}
+        onMouseLeave={() => {
+          clearHighlightSearchInput();
+        }}
+      >
+        <button
+          onClick={onSearchClick}
+          className="search-button"
+          disabled={!searchTerm}
+        >
+          SEARCH
+        </button>
+      </div>
     </section>
   );
 };
