@@ -39,8 +39,12 @@ const Playlist = ({
           onSaveClick(e);
           setPlaylistName("New Playlist");
         }}
-        className="save-playlist-btn"
-        disabled={playlistTracks.length === 0 || !playlistName}
+        className={
+          playlistTracks.length > 0
+            ? "save-playlist-btn"
+            : "save-playlist-btn hide-btn"
+        }
+        disabled={!playlistName}
       >
         SAVE PLAYLIST TO SPOTIFY
       </button>

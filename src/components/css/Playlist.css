@@ -37,6 +37,10 @@ button.save-playlist-btn:active {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
 }
 
+button.hide-btn {
+  display: none;
+}
+
 button.save-playlist-btn:disabled {
   background-color: #655dbb;
   color: #b5b9c3;
