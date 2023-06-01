@@ -13,6 +13,7 @@ input.playlist-name {
   font-size: 1.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
+  /* set transparent outline for highlight animation */
   outline: 2px solid transparent;
 }
 
