@@ -13,7 +13,7 @@ import Spotify from "../services/spotifyService";
 const PlaylistGenerator = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
 
