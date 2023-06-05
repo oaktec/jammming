@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 import "./css/LoginArea.css";
 
 const LoginArea = ({ login }) => {
@@ -11,7 +12,10 @@ const LoginArea = ({ login }) => {
   return (
     <section className="login-area">
       {loggingIn ? (
-        <p>Logging in...</p>
+        <p>
+          Logging in...
+          <LoadingSpinner />
+        </p>
       ) : (
         <button onClick={handleLoginClick} className="login-btn">
           LOGIN TO SPOTIFY
