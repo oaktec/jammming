@@ -20,7 +20,6 @@ const PlaylistGenerator = () => {
   // Initialize Spotify API wrapper
   useEffect(() => {
     Spotify.init(() => {
-      console.log("callback fired");
       setLoggedIn(true);
     });
   }, []);
@@ -58,7 +57,6 @@ const PlaylistGenerator = () => {
 
   const handleLoginClick = () => {
     Spotify.login();
-    setLoggedIn(true);
   };
 
   return (
