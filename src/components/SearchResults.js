@@ -9,7 +9,7 @@ const SearchResults = ({ searchResults, addToPlaylist }) => {
   };
 
   return (
-    <section className="SearchResults result-block">
+    <section className="search-results result-block">
       <h2>Results</h2>
       <Tracklist
         tracks={searchResults}

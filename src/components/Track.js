@@ -8,7 +8,7 @@ const Track = ({ track, index, actionDisplay, onActionClick }) => {
   };
 
   return (
-    <div className="Track">
+    <div className="track">
       <div className="track-info">
         <p>{track.name}</p>
         <p className="subtext">

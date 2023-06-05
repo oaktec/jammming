@@ -3,7 +3,7 @@ import Track from "./Track";
 
 const Tracklist = ({ tracks, listActionType, onActionClick }) => {
   return (
-    <div className="Tracklist">
+    <div className="tracklist">
       {tracks.map((track, index) => (
         <Track
           key={index}

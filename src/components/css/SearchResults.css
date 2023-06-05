@@ -1,10 +1,10 @@
-.SearchResults {
+.search-results {
   grid-area: Tracklist;
   justify-self: right;
   width: 500px;
 }
 
-.SearchResults h2 {
+.search-results h2 {
   text-align: left;
   font-size: 1.8rem;
   font-weight: 400;

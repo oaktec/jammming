@@ -9,11 +9,11 @@ const LoginArea = ({ login }) => {
   };
 
   return (
-    <section className="LoginArea">
+    <section className="login-area">
       {loggingIn ? (
-        <div className="LoggingIn">Logging in...</div>
+        <p>Logging in...</p>
       ) : (
-        <button onClick={handleLoginClick} className="LoginButton">
+        <button onClick={handleLoginClick} className="login-btn">
           LOGIN TO SPOTIFY
         </button>
       )}

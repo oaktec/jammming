@@ -1,4 +1,4 @@
-.Playlist {
+.playlist {
   grid-area: Playlist;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ input.playlist-name {
   outline: 2px solid transparent;
 }
 
-.Playlist .btn-wrapper {
+.playlist .btn-wrapper {
   display: flex;
   justify-content: center;
   align-self: center;

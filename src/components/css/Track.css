@@ -1,11 +1,11 @@
-.Track {
+.track {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #655dbb;
 }
 
-.Track:last-child {
+.track:last-child {
   border-bottom: none;
 }
 
@@ -19,7 +19,7 @@
   color: white;
 }
 
-.Track button {
+.track button {
   margin: 0.5rem;
   border: none;
   font-size: 2rem;
@@ -29,19 +29,19 @@
   cursor: pointer;
 }
 
-.Track button:hover {
+.track button:hover {
   background-color: rgba(255, 255, 255, 0.8);
   color: #655dbb;
 
   transition: all 0.4s ease;
 }
 
-.Track p {
+.track p {
   font-weight: 500;
   margin: 0.2rem;
 }
 
-.Track p.subtext {
+.track p.subtext {
   font-size: 0.8rem;
   /* darker gray */
   color: #707070;

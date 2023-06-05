@@ -60,7 +60,7 @@ const PlaylistGenerator = () => {
   };
 
   return (
-    <div className="PlaylistGenerator">
+    <div className="playlist-generator">
       {loggedIn ? (
         <SearchArea
           searchTerm={searchTerm}

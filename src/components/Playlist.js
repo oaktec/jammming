@@ -35,7 +35,7 @@ const Playlist = ({
   };
 
   return (
-    <section className="Playlist result-block">
+    <section className="playlist result-block">
       <input
         value={playlistName}
         onChange={handlePlaylistNameChange}

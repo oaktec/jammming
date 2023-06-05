@@ -1,4 +1,4 @@
-.LoginArea {
+.login-area {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +6,7 @@
   grid-area: SearchArea;
 }
 
-.LoginArea button {
+.login-area button {
   margin: 20px 0;
   padding: 14px 40px;
   border: none;
@@ -20,11 +20,11 @@
   transition: background-color 0.2s ease;
 }
 
-.LoginArea button:hover {
+.login-area button:hover {
   background-color: #4b8b42;
 }
 
-.LoginArea button:active {
+.login-area button:active {
   background-color: #4b8b42;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
 }
