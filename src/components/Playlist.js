@@ -3,6 +3,7 @@ import React from "react";
 import Tracklist from "./Tracklist";
 
 import "./css/Playlist.css";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Playlist = ({
   playlistTracks,
@@ -10,6 +11,7 @@ const Playlist = ({
   playlistName,
   setPlaylistName,
   onSaveClick,
+  saving,
 }) => {
   const handleActionClick = (trackIndex) => {
     removeFromPlaylist(trackIndex);
@@ -59,10 +61,7 @@ const Playlist = ({
         }}
       >
         <button
-          onClick={(e) => {
-            onSaveClick(e);
-            setPlaylistName("New Playlist");
-          }}
+          onClick={onSaveClick}
           className={
             playlistTracks.length > 0
               ? "save-playlist-btn"
@@ -70,7 +69,14 @@ const Playlist = ({
           }
           disabled={!playlistName}
         >
-          SAVE PLAYLIST TO SPOTIFY
+          {saving ? (
+            <>
+              {" "}
+              SAVING.. <LoadingSpinner />
+            </>
+          ) : (
+            "SAVE PLAYLIST TO SPOTIFY"
+          )}
         </button>
       </div>
     </section>

@@ -12,11 +12,14 @@ import Spotify from "../services/spotifyService";
 
 const PlaylistGenerator = () => {
   const [searching, setSearching] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [saving, setSaving] = useState(false);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false);
 
   // Initialize Spotify API wrapper
   useEffect(() => {
@@ -52,10 +55,18 @@ const PlaylistGenerator = () => {
     setPlaylistTracks(newPlaylistTracks);
   };
 
-  const savePlaylist = () => {
+  const savePlaylist = async () => {
     const trackURIs = playlistTracks.map((track) => track.uri);
-    Spotify.createPlaylist(playlistName, trackURIs);
-    setPlaylistTracks([]);
+    setSaving(true);
+
+    try {
+      await Spotify.createPlaylist(playlistName, trackURIs);
+      setPlaylistTracks([]);
+      setPlaylistName("");
+      setSaving(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleLoginClick = () => {
@@ -84,6 +95,7 @@ const PlaylistGenerator = () => {
         playlistName={playlistName}
         setPlaylistName={setPlaylistName}
         onSaveClick={savePlaylist}
+        saving={saving}
       />
     </div>
   );
