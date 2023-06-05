@@ -28,3 +28,9 @@
   background-color: #4b8b42;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
 }
+
+.loading-msg {
+  color: #ecf2ff;
+  font-size: 1.2rem;
+  margin: 20px 0;
+}

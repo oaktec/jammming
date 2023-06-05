@@ -12,10 +12,10 @@ const LoginArea = ({ login }) => {
   return (
     <section className="login-area">
       {loggingIn ? (
-        <p>
+        <div class="loading-msg">
           Logging in...
           <LoadingSpinner />
-        </p>
+        </div>
       ) : (
         <button onClick={handleLoginClick} className="login-btn">
           LOGIN TO SPOTIFY
