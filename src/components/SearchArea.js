@@ -7,7 +7,6 @@ const SearchArea = ({
   setSearchTerm,
   onSearchClick,
   searching,
-  setSearching,
 }) => {
   const handleSearchTermChange = (e) => {
     if (e.target.value !== "") clearHighlightSearchInput();
