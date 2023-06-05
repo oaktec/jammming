@@ -3,6 +3,8 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #655dbb;
+
+  transition: all 0.4s ease;
 }
 
 .track:last-child {
