@@ -8,9 +8,10 @@
 }
 
 .loading-spinner {
+  margin: 0;
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 0.5em;
+  height: 0.5em;
   border-radius: 50%;
   border: 7px solid #655dbb;
   border-top-color: #ecf2ff;
