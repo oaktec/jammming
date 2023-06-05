@@ -34,6 +34,7 @@ input.search-bar.highlight-input {
 }
 
 .search-area button {
+  min-width: 15rem;
   margin: 20px 0;
   padding: 14px 40px;
   border: none;

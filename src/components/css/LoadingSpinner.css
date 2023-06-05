@@ -12,7 +12,7 @@
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  border: 10px solid #655dbb;
+  border: 7px solid #655dbb;
   border-top-color: #ecf2ff;
   animation: spin 1s infinite linear;
 }

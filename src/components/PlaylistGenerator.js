@@ -11,6 +11,7 @@ import SearchResults from "./SearchResults";
 import Spotify from "../services/spotifyService";
 
 const PlaylistGenerator = () => {
+  const [searching, setSearching] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
@@ -29,10 +30,12 @@ const PlaylistGenerator = () => {
       alert("Please enter a search term!");
       return;
     }
+    setSearching(true);
 
     try {
       const results = await Spotify.search(searchTerm);
       setSearchResults(results);
+      setSearching(false);
     } catch (err) {
       console.log(err);
     }
@@ -66,6 +69,7 @@ const PlaylistGenerator = () => {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           onSearchClick={search}
+          searching={searching}
         />
       ) : (
         <LoginArea login={handleLoginClick} />

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/SearchArea.css";
+import LoadingSpinner from "./LoadingSpinner";
 
-const SearchArea = ({ searchTerm, setSearchTerm, onSearchClick }) => {
+const SearchArea = ({
+  searchTerm,
+  setSearchTerm,
+  onSearchClick,
+  searching,
+  setSearching,
+}) => {
   const handleSearchTermChange = (e) => {
     if (e.target.value !== "") clearHighlightSearchInput();
     setSearchTerm(e.target.value);
@@ -37,7 +44,13 @@ const SearchArea = ({ searchTerm, setSearchTerm, onSearchClick }) => {
           className="search-button"
           disabled={!searchTerm}
         >
-          SEARCH
+          {searching ? (
+            <>
+              SEARCHING.. <LoadingSpinner />
+            </>
+          ) : (
+            "SEARCH"
+          )}
         </button>
       </div>
     </section>
