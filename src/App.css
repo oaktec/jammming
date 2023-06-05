@@ -51,3 +51,21 @@ main {
   flex-direction: column;
   height: 90vh;
 }
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #18172e;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #655dbb;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: whitesmoke;
+}
