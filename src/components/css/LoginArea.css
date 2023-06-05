@@ -33,4 +33,7 @@
   color: #ecf2ff;
   font-size: 1.2rem;
   margin: 20px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 14px 40px;
+  border-radius: 5px;
 }
