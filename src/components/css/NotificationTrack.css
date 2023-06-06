@@ -1,3 +1,15 @@
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .track-notification {
   display: flex;
   flex: 1;
@@ -6,10 +18,9 @@
   padding: 1rem;
   font-size: 1.5rem;
   font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  text-shadow: 0 0 0.5rem black;
 
-  transition: border 0.4s ease;
+  animation-duration: 0.4s;
+  animation-name: pop;
 }
 
 .track-notification.success p {
