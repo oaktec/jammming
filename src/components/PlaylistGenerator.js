@@ -41,6 +41,11 @@ const PlaylistGenerator = () => {
       const results = await Spotify.search(searchTerm);
       setSearchResults(results);
       setSearching(false);
+
+      if (results.length === 0) setSearchFailure(true);
+      setTimeout(() => {
+        setSearchFailure(false);
+      }, 2000);
     } catch (err) {
       console.log(err);
     }
@@ -95,6 +100,9 @@ const PlaylistGenerator = () => {
       <SearchResults
         addToPlaylist={addToPlaylist}
         searchResults={searchResults}
+        notification={
+          searchFailure ? { msg: "No results found!", type: "error" } : null
+        }
       />
       <Playlist
         removeFromPlaylist={removeFromPlaylist}
