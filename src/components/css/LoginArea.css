@@ -13,7 +13,7 @@
   border-radius: 25px;
   font-size: 1.2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: #65bb5d;
+  background-color: #1db954;
   color: #ecf2ff;
   cursor: pointer;
 
@@ -21,11 +21,11 @@
 }
 
 .login-area button:hover {
-  background-color: #4b8b42;
+  background-color: #1db954cc;
 }
 
 .login-area button:active {
-  background-color: #4b8b42;
+  background-color: #1db954aa;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
 }
 
