@@ -10,7 +10,7 @@ const Tracklist = ({ tracks, listActionType, onActionClick, notification }) => {
           key={index}
           track={track}
           index={index}
-          actionDisplay={listActionType === "add" ? "+" : "-"}
+          actionDisplay={listActionType}
           onActionClick={onActionClick}
         />
       ))}
