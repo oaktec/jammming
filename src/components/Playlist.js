@@ -54,7 +54,7 @@ const Playlist = ({
       />
 
       <div
-        class="btn-wrapper"
+        className="btn-wrapper"
         onMouseEnter={() => {
           if (!playlistName) highlightNameInput();
         }}
