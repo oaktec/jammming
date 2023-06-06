@@ -14,6 +14,7 @@ const PlaylistGenerator = () => {
   const [searching, setSearching] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [saveSuccess, setSaveSuccess] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -64,6 +65,11 @@ const PlaylistGenerator = () => {
       setPlaylistTracks([]);
       setPlaylistName("");
       setSaving(false);
+
+      setSaveSuccess(true);
+      setTimeout(() => {
+        setSaveSuccess(false);
+      }, 2000);
     } catch (err) {
       console.log(err);
     }
@@ -96,6 +102,7 @@ const PlaylistGenerator = () => {
         setPlaylistName={setPlaylistName}
         onSaveClick={savePlaylist}
         saving={saving}
+        saveSuccess={saveSuccess}
       />
     </div>
   );

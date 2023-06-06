@@ -12,6 +12,7 @@ const Playlist = ({
   setPlaylistName,
   onSaveClick,
   saving,
+  saveSuccess,
 }) => {
   const handleActionClick = (trackIndex) => {
     removeFromPlaylist(trackIndex);
@@ -49,6 +50,7 @@ const Playlist = ({
         tracks={playlistTracks}
         listActionType="remove"
         onActionClick={handleActionClick}
+        saveSuccess={saveSuccess}
       />
 
       <div
