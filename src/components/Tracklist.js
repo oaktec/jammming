@@ -2,7 +2,7 @@ import React from "react";
 import Track from "./Track";
 import NotificationTrack from "./NotificationTrack";
 
-const Tracklist = ({ tracks, listActionType, onActionClick, saveSuccess }) => {
+const Tracklist = ({ tracks, listActionType, onActionClick, notification }) => {
   return (
     <div className="tracklist">
       {tracks.map((track, index) => (
@@ -14,7 +14,9 @@ const Tracklist = ({ tracks, listActionType, onActionClick, saveSuccess }) => {
           onActionClick={onActionClick}
         />
       ))}
-      {saveSuccess && <NotificationTrack msg="Playlist Saved" success={true} />}
+      {notification && (
+        <NotificationTrack msg={notification.msg} type={notification.type} />
+      )}
     </div>
   );
 };

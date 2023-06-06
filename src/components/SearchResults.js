@@ -3,7 +3,7 @@ import Tracklist from "./Tracklist";
 
 import "./css/SearchResults.css";
 
-const SearchResults = ({ searchResults, addToPlaylist }) => {
+const SearchResults = ({ searchResults, addToPlaylist, searchFailure }) => {
   const handleActionClick = (trackIndex) => {
     addToPlaylist(searchResults[trackIndex]);
   };
@@ -15,6 +15,7 @@ const SearchResults = ({ searchResults, addToPlaylist }) => {
         tracks={searchResults}
         listActionType="add"
         onActionClick={handleActionClick}
+        searchFailure={searchFailure}
       />
     </section>
   );

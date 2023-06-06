@@ -12,7 +12,7 @@ const Playlist = ({
   setPlaylistName,
   onSaveClick,
   saving,
-  saveSuccess,
+  notification,
 }) => {
   const handleActionClick = (trackIndex) => {
     removeFromPlaylist(trackIndex);
@@ -50,7 +50,7 @@ const Playlist = ({
         tracks={playlistTracks}
         listActionType="remove"
         onActionClick={handleActionClick}
-        saveSuccess={saveSuccess}
+        notification={notification}
       />
 
       <div

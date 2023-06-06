@@ -15,6 +15,7 @@ const PlaylistGenerator = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [searchFailure, setSearchFailure] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -102,7 +103,7 @@ const PlaylistGenerator = () => {
         setPlaylistName={setPlaylistName}
         onSaveClick={savePlaylist}
         saving={saving}
-        saveSuccess={saveSuccess}
+        notification={saveSuccess ? { msg: "Saved!", type: "success" } : null}
       />
     </div>
   );

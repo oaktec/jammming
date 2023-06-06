@@ -2,10 +2,8 @@ import React from "react";
 
 import "./css/NotificationTrack.css";
 
-const NotificationTrack = ({ msg, success }) => {
-  const classes = success
-    ? "track-notification success"
-    : "track-notification error";
+const NotificationTrack = ({ msg, type }) => {
+  const classes = "track-notification " + type;
 
   return (
     <div className="track">
