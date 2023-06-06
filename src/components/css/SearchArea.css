@@ -12,6 +12,8 @@
   justify-content: center;
   /* ensures big enough to fire mouseLeave event */
   width: max-content;
+  padding: 5px 0;
+  margin: 20px 0;
   padding-inline: 0.2rem;
 }
 
@@ -36,7 +38,6 @@ input.search-bar.highlight-input {
 
 .search-area button {
   min-width: 15rem;
-  margin: 20px 0;
   padding: 14px 40px;
   border: none;
   border-radius: 25px;
