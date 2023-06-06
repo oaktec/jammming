@@ -38,7 +38,8 @@ const Spotify = {
       this._tokenExpirationTime = Date.now() + expiresIn[1] * 1000;
 
       // clear url
-      window.history.pushState("Access Token", null, "/");
+      const url = window.location.href.split("#")[0];
+      window.history.pushState("Access Token", null, url);
       if (this.onLoginCallback) {
         this.onLoginCallback();
       }
