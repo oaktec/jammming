@@ -52,12 +52,13 @@ describe("Spotify", () => {
 
     beforeAll(() => {
       delete window.location;
+      window.history.pushState = jest.fn();
     });
 
     beforeEach(() => {
       Spotify.onLoginCallback = jest.fn();
       window.location = {
-        href: "https://example.com?access_token=test-token&expires_in=60",
+        href: "https://example.com/#access_token=test-token&expires_in=60",
       };
     });
 
@@ -71,10 +72,15 @@ describe("Spotify", () => {
       expect(Spotify._accessToken).toEqual("test-token");
       expect(Spotify._tokenExpirationTime).toBeGreaterThan(Date.now());
       expect(Spotify.onLoginCallback).toHaveBeenCalledTimes(1);
+      expect(window.history.pushState).toHaveBeenCalledWith(
+        "Access Token",
+        null,
+        "https://example.com/"
+      );
     });
 
     it("should not modify tokens if token is missing", () => {
-      window.location.href = "https://example.com?expires_in=60";
+      window.location.href = "https://example.com/#expires_in=60";
       Spotify.handleURLParams();
 
       expect(Spotify._accessToken).toBeNull();
