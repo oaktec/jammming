@@ -117,6 +117,7 @@ const PlaylistGenerator = () => {
       />
       <Playlist
         removeFromPlaylist={removeFromPlaylist}
+        previewTrack={previewTrack}
         playlistTracks={playlistTracks}
         playlistName={playlistName}
         setPlaylistName={setPlaylistName}

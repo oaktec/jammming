@@ -8,6 +8,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 const Playlist = ({
   playlistTracks,
   removeFromPlaylist,
+  previewTrack,
   playlistName,
   setPlaylistName,
   onSaveClick,
@@ -16,6 +17,10 @@ const Playlist = ({
 }) => {
   const handleActionClick = (trackIndex) => {
     removeFromPlaylist(trackIndex);
+  };
+
+  const handlePreviewClick = (trackIndex) => {
+    previewTrack(playlistTracks[trackIndex]);
   };
 
   const selectAllText = (e) => {
@@ -50,6 +55,7 @@ const Playlist = ({
         tracks={playlistTracks}
         listActionType="remove"
         onActionClick={handleActionClick}
+        onPreviewClick={handlePreviewClick}
         notification={notification}
       />
 
