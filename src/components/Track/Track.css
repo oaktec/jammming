@@ -39,7 +39,7 @@
 
 .track button.preview-track-btn:hover {
   color: #1db954;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
 }
 
 .track p {
