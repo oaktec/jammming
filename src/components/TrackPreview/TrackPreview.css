@@ -13,3 +13,43 @@
 
   transition: border 0.4s ease;
 }
+
+.track-preview button {
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #ecf2ff;
+
+  transition: all 0.2s ease;
+}
+
+.track-preview .close-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.track-preview .close-btn:hover {
+  color: #ff0000;
+  scale: 1.1;
+}
+
+.track-preview .close-btn:active {
+  color: #ff0000aa;
+}
+
+.track-preview .mute-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.track-preview .mute-btn:hover {
+  color: #1db954;
+  scale: 1.1;
+}
+
+.track-preview .mute-btn:active {
+  color: #1db954aa;
+}
