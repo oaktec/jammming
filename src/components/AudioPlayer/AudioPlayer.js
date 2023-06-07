@@ -38,20 +38,16 @@ const AudioPlayer = ({ audioUrl }) => {
 
   return (
     <div className="audio-player">
-      <div>
-        <audio
-          src={audioUrl}
-          autoPlay
-          ref={audioRef}
-          onLoadedMetadata={onLoadedMetadata}
-          onTimeUpdate={onTimeUpdate}
-        />
-      </div>
-      <div className="controls">
-        <button className="play-pause-btn" onClick={handlePlayPause}>
-          <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
-        </button>
-      </div>
+      <audio
+        src={audioUrl}
+        autoPlay
+        ref={audioRef}
+        onLoadedMetadata={onLoadedMetadata}
+        onTimeUpdate={onTimeUpdate}
+      />
+      <button className="play-pause-btn" onClick={handlePlayPause}>
+        <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
+      </button>
       <div className="playback-bar">
         <input onChange={onSeek} ref={playbackBarRef} type="range" />
       </div>

@@ -2,11 +2,9 @@
   grid-area: TrackPreview;
 
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    "img info"
-    "img audio-player";
+  grid-template-columns: 120px 200px 1fr 320px;
+  grid-template-rows: minmax(auto, 10vh);
+  grid-template-areas: "img info audio-player space";
   gap: 0.5rem;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -36,7 +34,7 @@
   gap: 0;
 }
 
-.track-preview button {
+button.close-btn {
   font-size: 1rem;
   cursor: pointer;
   border: none;
@@ -48,8 +46,8 @@
 
 .track-preview .close-btn {
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  bottom: 7vh;
+  right: 0.5rem;
 }
 
 .track-preview .close-btn:hover {

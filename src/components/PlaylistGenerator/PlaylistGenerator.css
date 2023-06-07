@@ -4,7 +4,7 @@
   box-sizing: border-box;
   min-width: 500px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr minmax(auto, 10vh);
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "SearchArea SearchArea"
     "Tracklist Playlist"
