@@ -13,6 +13,7 @@ const AudioPlayer = ({ audioUrl }) => {
   const onLoadedMetadata = () => {
     const refDuration = audioRef.current.duration;
     playbackBarRef.current.max = refDuration;
+    setPlaying(true);
   };
 
   const onTimeUpdate = () => {
