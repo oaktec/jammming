@@ -54,7 +54,6 @@ const PlaylistGenerator = () => {
   };
 
   const previewTrack = (track) => {
-    console.log(track);
     setTrackPreview(track);
   };
 

@@ -13,7 +13,7 @@ const TrackPreview = ({ track }) => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
     }
-  }, [track]);
+  }, [track, volume]);
 
   return (
     <>
