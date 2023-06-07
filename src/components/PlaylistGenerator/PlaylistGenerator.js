@@ -9,6 +9,7 @@ import Playlist from "../Playlist/Playlist";
 import SearchResults from "../SearchResults/SearchResults";
 
 import Spotify from "../../services/spotifyService";
+import TrackPreview from "../TrackPreview/TrackPreview";
 
 const PlaylistGenerator = () => {
   const [searching, setSearching] = useState(false);
@@ -115,6 +116,7 @@ const PlaylistGenerator = () => {
         saving={saving}
         notification={saveSuccess ? { msg: "Saved!", type: "success" } : null}
       />
+      <TrackPreview />
     </div>
   );
 };

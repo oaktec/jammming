@@ -21,6 +21,17 @@
   color: white;
 }
 
+.track-info p {
+  font-weight: 500;
+  margin: 0.2rem;
+}
+
+.track-info p.subtext {
+  font-size: 0.8rem;
+  /* darker gray */
+  color: #707070;
+}
+
 .track button {
   margin: 0.5rem;
   border: none;
@@ -40,15 +51,4 @@
 .track button.preview-track-btn:hover {
   color: #1db954;
   background-color: transparent;
-}
-
-.track p {
-  font-weight: 500;
-  margin: 0.2rem;
-}
-
-.track p.subtext {
-  font-size: 0.8rem;
-  /* darker gray */
-  color: #707070;
 }
