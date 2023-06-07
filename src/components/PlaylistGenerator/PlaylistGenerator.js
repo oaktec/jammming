@@ -17,6 +17,7 @@ const PlaylistGenerator = () => {
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [searchFailure, setSearchFailure] = useState(false);
+  const [trackPreview, setTrackPreview] = useState(null);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -43,8 +44,6 @@ const PlaylistGenerator = () => {
       setSearchResults(results);
       setSearching(false);
 
-      console.log(results);
-
       if (results.length === 0) setSearchFailure(true);
       setTimeout(() => {
         setSearchFailure(false);
@@ -52,6 +51,11 @@ const PlaylistGenerator = () => {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const previewTrack = (track) => {
+    console.log(track);
+    setTrackPreview(track);
   };
 
   const addToPlaylist = (track) => {
@@ -102,6 +106,7 @@ const PlaylistGenerator = () => {
       )}
       <SearchResults
         addToPlaylist={addToPlaylist}
+        previewTrack={previewTrack}
         searchResults={searchResults}
         notification={
           searchFailure ? { msg: "No results found!", type: "error" } : null
@@ -116,7 +121,7 @@ const PlaylistGenerator = () => {
         saving={saving}
         notification={saveSuccess ? { msg: "Saved!", type: "success" } : null}
       />
-      <TrackPreview />
+      <TrackPreview track={trackPreview} />
     </div>
   );
 };

@@ -4,7 +4,13 @@ import NotificationTrack from "../NotificationTrack/NotificationTrack";
 
 import "./Tracklist.css";
 
-const Tracklist = ({ tracks, listActionType, onActionClick, notification }) => {
+const Tracklist = ({
+  tracks,
+  listActionType,
+  onActionClick,
+  onPreviewClick,
+  notification,
+}) => {
   return (
     <div className="tracklist">
       {tracks.map((track, index) => (
@@ -14,6 +20,7 @@ const Tracklist = ({ tracks, listActionType, onActionClick, notification }) => {
           index={index}
           actionDisplay={listActionType}
           onActionClick={onActionClick}
+          onPreviewClick={onPreviewClick}
         />
       ))}
       {notification && (

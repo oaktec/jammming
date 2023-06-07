@@ -30,7 +30,7 @@ const SearchArea = ({
         placeholder="Enter A Song, Album, or Artist"
       />
       <div
-        class="btn-wrapper"
+        className="btn-wrapper"
         onMouseEnter={() => {
           if (!searchTerm) highlightSearchInput();
         }}

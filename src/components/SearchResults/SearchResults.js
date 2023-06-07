@@ -3,9 +3,18 @@ import Tracklist from "../Tracklist/Tracklist";
 
 import "./SearchResults.css";
 
-const SearchResults = ({ searchResults, addToPlaylist, notification }) => {
+const SearchResults = ({
+  searchResults,
+  addToPlaylist,
+  notification,
+  previewTrack,
+}) => {
   const handleActionClick = (trackIndex) => {
     addToPlaylist(searchResults[trackIndex]);
+  };
+
+  const handlePreviewClick = (trackIndex) => {
+    previewTrack(searchResults[trackIndex]);
   };
 
   return (
@@ -15,6 +24,7 @@ const SearchResults = ({ searchResults, addToPlaylist, notification }) => {
         tracks={searchResults}
         listActionType="add"
         onActionClick={handleActionClick}
+        onPreviewClick={handlePreviewClick}
         notification={notification}
       />
     </section>

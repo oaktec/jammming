@@ -8,9 +8,19 @@ import {
 
 import "./Track.css";
 
-const Track = ({ track, index, actionDisplay, onActionClick }) => {
+const Track = ({
+  track,
+  index,
+  actionDisplay,
+  onActionClick,
+  onPreviewClick,
+}) => {
   const handleActionClick = (e) => {
     onActionClick(index);
+  };
+
+  const handlePreviewClick = (e) => {
+    onPreviewClick(index);
   };
 
   return (
@@ -21,7 +31,7 @@ const Track = ({ track, index, actionDisplay, onActionClick }) => {
           {track.artist} | {track.album}
         </p>
       </div>
-      <button className="preview-track-btn">
+      <button onClick={handlePreviewClick} className="preview-track-btn">
         <FontAwesomeIcon icon={faVolumeHigh} />
       </button>
       <button onClick={handleActionClick} className="action-btn">
