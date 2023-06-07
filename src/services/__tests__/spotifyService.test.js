@@ -250,6 +250,7 @@ describe("Spotify", () => {
               artists: [{ name: "Artist 1" }],
               album: { name: "Album 1" },
               uri: "spotify:track:1",
+              preview_url: "https://example.com/preview",
             },
             {
               id: "2",
@@ -257,6 +258,7 @@ describe("Spotify", () => {
               artists: [{ name: "Artist 2" }],
               album: { name: "Album 2" },
               uri: "spotify:track:2",
+              preview_url: "https://example.com/preview2",
             },
           ],
         },
@@ -272,6 +274,7 @@ describe("Spotify", () => {
           artist: "Artist 1",
           album: "Album 1",
           uri: "spotify:track:1",
+          previewUrl: "https://example.com/preview",
         },
         {
           id: "2",
@@ -279,6 +282,7 @@ describe("Spotify", () => {
           artist: "Artist 2",
           album: "Album 2",
           uri: "spotify:track:2",
+          previewUrl: "https://example.com/preview2",
         },
       ]);
     });
