@@ -1,13 +1,13 @@
 .track-preview {
-  position: absolute;
-  top: max(10.5vh, 4.5rem);
-  left: 5px;
-  width: 300px;
-  height: 200px;
+  grid-area: TrackPreview;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "img info"
+    "img audio-player";
+  gap: 0.5rem;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
 
@@ -15,13 +15,18 @@
 }
 
 .track-preview img {
-  width: 120px;
-  height: 120px;
+  grid-area: img;
+
+  height: 100%;
+  width: auto;
   align-self: center;
   margin: 0.5rem;
+  padding: 0.2rem;
 }
 
 .track-preview .track-info {
+  grid-area: info;
+
   margin-left: 2rem;
   margin-right: 1rem;
   padding: 0;

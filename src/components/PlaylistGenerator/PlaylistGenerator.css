@@ -2,14 +2,14 @@
   height: 100%;
   display: grid;
   box-sizing: border-box;
-  padding-bottom: 16px;
   min-width: 500px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 12rem 1fr;
+  grid-template-rows: auto 1fr minmax(auto, 10vh);
   grid-template-areas:
     "SearchArea SearchArea"
-    "Tracklist Playlist";
-  grid-gap: 64px;
+    "Tracklist Playlist"
+    "TrackPreview TrackPreview";
+  grid-gap: 30px;
   flex: 1;
 }
 
