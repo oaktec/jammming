@@ -3,7 +3,7 @@ import "./App.css";
 
 import SpotifyLogo from "./img/Spotify_Logo_RGB_White.png";
 
-import PlaylistGenerator from "./components/PlaylistGenerator";
+import PlaylistGenerator from "./components/PlaylistGenerator/PlaylistGenerator";
 
 function App() {
   return (

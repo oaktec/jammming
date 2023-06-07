@@ -1,14 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import "./css/PlaylistGenerator.css";
+import "./PlaylistGenerator.css";
 
-import SearchArea from "./SearchArea";
-import LoginArea from "./LoginArea";
-import Playlist from "./Playlist";
-import SearchResults from "./SearchResults";
+import SearchArea from "../SearchArea/SearchArea";
+import LoginArea from "../LoginArea/LoginArea";
+import Playlist from "../Playlist/Playlist";
+import SearchResults from "../SearchResults/SearchResults";
 
-import Spotify from "../services/spotifyService";
+import Spotify from "../../services/spotifyService";
 
 const PlaylistGenerator = () => {
   const [searching, setSearching] = useState(false);
@@ -41,6 +41,8 @@ const PlaylistGenerator = () => {
       const results = await Spotify.search(searchTerm);
       setSearchResults(results);
       setSearching(false);
+
+      console.log(results);
 
       if (results.length === 0) setSearchFailure(true);
       setTimeout(() => {

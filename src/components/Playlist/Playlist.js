@@ -1,9 +1,9 @@
 import React from "react";
 
-import Tracklist from "./Tracklist";
+import Tracklist from "../Tracklist/Tracklist";
 
-import "./css/Playlist.css";
-import LoadingSpinner from "./LoadingSpinner";
+import "./Playlist.css";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const Playlist = ({
   playlistTracks,

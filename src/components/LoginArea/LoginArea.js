@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import LoadingSpinner from "./LoadingSpinner";
-import "./css/LoginArea.css";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import "./LoginArea.css";
 
 const LoginArea = ({ login }) => {
   const [loggingIn, setLoggingIn] = useState(false);

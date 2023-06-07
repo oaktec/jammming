@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./css/SearchArea.css";
-import LoadingSpinner from "./LoadingSpinner";
+import "./SearchArea.css";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const SearchArea = ({
   searchTerm,

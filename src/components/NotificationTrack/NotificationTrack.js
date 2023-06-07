@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./css/NotificationTrack.css";
+import "./NotificationTrack.css";
 
 const NotificationTrack = ({ msg, type }) => {
   return (

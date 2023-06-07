@@ -1,6 +1,8 @@
 import React from "react";
-import Track from "./Track";
-import NotificationTrack from "./NotificationTrack";
+import Track from "../Track/Track";
+import NotificationTrack from "../NotificationTrack/NotificationTrack";
+
+import "./Tracklist.css";
 
 const Tracklist = ({ tracks, listActionType, onActionClick, notification }) => {
   return (

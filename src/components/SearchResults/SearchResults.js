@@ -1,7 +1,7 @@
 import React from "react";
-import Tracklist from "./Tracklist";
+import Tracklist from "../Tracklist/Tracklist";
 
-import "./css/SearchResults.css";
+import "./SearchResults.css";
 
 const SearchResults = ({ searchResults, addToPlaylist, notification }) => {
   const handleActionClick = (trackIndex) => {

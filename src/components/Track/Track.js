@@ -6,7 +6,7 @@ import {
   faVolumeHigh,
 } from "@fortawesome/free-solid-svg-icons";
 
-import "./css/Track.css";
+import "./Track.css";
 
 const Track = ({ track, index, actionDisplay, onActionClick }) => {
   const handleActionClick = (e) => {
