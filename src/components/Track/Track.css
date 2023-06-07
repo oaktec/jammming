@@ -39,16 +39,28 @@
   background-color: transparent;
   color: #ecf2ff;
   cursor: pointer;
-}
-
-.track button:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #655dbb;
 
   transition: all 0.4s ease;
 }
 
+.track button:not(.preview-track-btn) {
+  outline: 1px solid rgba(101, 93, 187, 0);
+  outline-style: inset;
+}
+
+.track button:not(.preview-track-btn):hover {
+  outline: 1px solid rgba(101, 93, 187, 1);
+}
+
+.track button:hover {
+  color: #655dbb;
+  scale: 1.1;
+}
+
 .track button.preview-track-btn:hover {
   color: #1db954;
-  background-color: transparent;
+}
+
+.track button.preview-track-btn:active {
+  color: #1db954aa;
 }
