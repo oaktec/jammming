@@ -4,17 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 
 import "./TrackPreview.css";
+import AudioPlayer from "../AudioPlayer/AudioPlayer";
 
 const TrackPreview = ({ track }) => {
-  const [volume, setVolume] = useState(0.5);
-  const audioRef = useRef(null);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume;
-    }
-  }, [track, volume]);
-
   return (
     <>
       {track && (
@@ -23,17 +15,12 @@ const TrackPreview = ({ track }) => {
             <FontAwesomeIcon icon={faX} />
           </button>
           <div className="track-info">
-            <p>Track Name</p>
-            <p className="subtext">Artist | Album</p>
+            <p>{track.name}</p>
+            <p className="subtext">
+              {track.artist} | {track.album}
+            </p>
           </div>
-          <audio
-            ref={audioRef}
-            src={track.previewUrl}
-            autoPlay
-            controls
-            controlsList="nodownload noplaybackrate"
-            onVolumeChange={(e) => setVolume(e.target.volume)}
-          />
+          <AudioPlayer audioUrl={track.previewUrl} />
         </div>
       )}
     </>
