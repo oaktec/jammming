@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.5rem 5rem;
+  padding: 0.5rem 0.5rem;
   border-bottom: 1px solid #655dbb;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -37,19 +37,4 @@
 
 .track-preview .close-btn:active {
   color: #ff0000aa;
-}
-
-.track-preview .mute-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-.track-preview .mute-btn:hover {
-  color: #1db954;
-  scale: 1.1;
-}
-
-.track-preview .mute-btn:active {
-  color: #1db954aa;
 }
