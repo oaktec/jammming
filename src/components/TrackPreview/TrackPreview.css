@@ -2,11 +2,11 @@
   position: absolute;
   top: 10rem;
   right: 0;
+  max-width: 320px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.5rem 0.5rem;
   border-bottom: 1px solid #655dbb;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -14,8 +14,18 @@
   transition: border 0.4s ease;
 }
 
+.track-preview .track-info {
+  margin-left: 2rem;
+  margin-right: 1rem;
+  padding: 0;
+
+  align-items: flex-start;
+  text-align: left;
+  gap: 0;
+}
+
 .track-preview button {
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -26,8 +36,8 @@
 
 .track-preview .close-btn {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 0.5rem;
+  left: 0.5rem;
 }
 
 .track-preview .close-btn:hover {
