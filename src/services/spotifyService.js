@@ -111,6 +111,7 @@ const Spotify = {
       album: track.album.name,
       uri: track.uri,
       previewUrl: track.preview_url,
+      albumArt: track.album.images[0].url,
     }));
   },
 

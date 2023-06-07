@@ -15,6 +15,7 @@ const TrackPreview = ({ track }) => {
             <FontAwesomeIcon icon={faX} />
           </button>
           <div className="track-info">
+            {track.albumArt && <img src={track.albumArt} alt="album art" />}
             <p>{track.name}</p>
             <p className="subtext">
               {track.artist} | {track.album}
