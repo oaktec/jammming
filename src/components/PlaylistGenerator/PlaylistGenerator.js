@@ -91,6 +91,10 @@ const PlaylistGenerator = () => {
     Spotify.login();
   };
 
+  const clearPreviewTrack = () => {
+    setTrackPreview(null);
+  };
+
   return (
     <div className="playlist-generator">
       {loggedIn ? (
@@ -120,7 +124,10 @@ const PlaylistGenerator = () => {
         saving={saving}
         notification={saveSuccess ? { msg: "Saved!", type: "success" } : null}
       />
-      <TrackPreview track={trackPreview} />
+      <TrackPreview
+        track={trackPreview}
+        clearPreviewTrack={clearPreviewTrack}
+      />
     </div>
   );
 };

@@ -6,12 +6,12 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./TrackPreview.css";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 
-const TrackPreview = ({ track }) => {
+const TrackPreview = ({ track, clearPreviewTrack }) => {
   return (
     <>
       {track && (
         <div className="track-preview">
-          <button className="close-btn">
+          <button onClick={clearPreviewTrack} className="close-btn">
             <FontAwesomeIcon icon={faX} />
           </button>
           {track.albumArt && <img src={track.albumArt} alt="album art" />}
