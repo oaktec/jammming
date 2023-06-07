@@ -31,6 +31,7 @@ const TrackPreview = ({ track }) => {
             src={track.previewUrl}
             autoPlay
             controls
+            controlsList="nodownload noplaybackrate"
             onVolumeChange={(e) => setVolume(e.target.volume)}
           />
         </div>
