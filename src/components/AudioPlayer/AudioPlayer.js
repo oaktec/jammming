@@ -11,9 +11,14 @@ const AudioPlayer = ({ audioUrl }) => {
   const playbackBarRef = useRef();
 
   const onLoadedMetadata = () => {
-    const refDuration = audioRef.current.duration;
+    const refDuration = Math.floor(audioRef.current.duration);
     playbackBarRef.current.max = refDuration;
     setPlaying(true);
+  };
+
+  const onEnded = () => {
+    setPlaying(false);
+    playbackBarRef.current.value = 0;
   };
 
   const onTimeUpdate = () => {
@@ -44,6 +49,7 @@ const AudioPlayer = ({ audioUrl }) => {
         ref={audioRef}
         onLoadedMetadata={onLoadedMetadata}
         onTimeUpdate={onTimeUpdate}
+        onEnded={onEnded}
       />
       <button className="play-pause-btn" onClick={handlePlayPause}>
         <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
