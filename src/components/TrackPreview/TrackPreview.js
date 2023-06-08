@@ -5,6 +5,7 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 
 import "./TrackPreview.css";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
+import VolumeSlider from "../VolumeSlider/VolumeSlider";
 
 const TrackPreview = ({ track, clearPreviewTrack }) => {
   return (
@@ -22,6 +23,7 @@ const TrackPreview = ({ track, clearPreviewTrack }) => {
             </p>
           </div>
           <AudioPlayer audioUrl={track.previewUrl} />
+          <VolumeSlider />
         </div>
       )}
     </>

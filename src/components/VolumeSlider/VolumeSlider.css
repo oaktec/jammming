@@ -1,0 +1,38 @@
+.volume-slider {
+  grid-area: volume;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  gap: 10px;
+}
+
+.volume-slider input {
+  margin: 0;
+  accent-color: #ecf2ff;
+
+  width: 100px;
+  height: 5px;
+}
+
+.volume-slider input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.volume-slider button {
+  width: 40px;
+  margin-top: 2rem;
+  background-color: transparent;
+  border: none;
+  color: #ecf2ff;
+
+  font-size: 1rem;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
