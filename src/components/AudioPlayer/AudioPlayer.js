@@ -44,7 +44,8 @@ const AudioPlayer = ({ audioUrl, volume, handleResume }) => {
     } else {
       audioRef.current.pause();
     }
-  }, [handleResume, isPlaying]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPlaying]);
 
   return (
     <div className="audio-player">
