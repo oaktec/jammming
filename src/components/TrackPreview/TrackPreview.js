@@ -32,7 +32,15 @@ const TrackPreview = ({ track, clearPreviewTrack }) => {
     } else {
       setMuted(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [volume]);
+
+  useEffect(() => {
+    if (isMuted) {
+      setVolume(savedVolume);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [track]);
 
   return (
     <>
