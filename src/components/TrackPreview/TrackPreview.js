@@ -10,12 +10,14 @@ import VolumeSlider from "../VolumeSlider/VolumeSlider";
 const TrackPreview = ({ track, clearPreviewTrack }) => {
   const [volume, setVolume] = React.useState(50);
   const [isMuted, setMuted] = React.useState(false);
+  const [savedVolume, setSavedVolume] = React.useState(50);
 
   const handleMute = () => {
     setMuted(!isMuted);
     if (isMuted) {
-      setVolume(50);
+      setVolume(savedVolume);
     } else {
+      setSavedVolume(volume);
       setVolume(0);
     }
   };
