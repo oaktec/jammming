@@ -17,7 +17,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  text-align: center;
   background: linear-gradient(rgba(191, 172, 226, 0.5), rgba(0, 0, 0, 0.7)),
     url("./img/background.png");
   background-size: cover;
