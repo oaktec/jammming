@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +13,6 @@ const TrackPreview = ({ track, clearPreviewTrack }) => {
   const [savedVolume, setSavedVolume] = React.useState(50);
 
   const handleMute = () => {
-    setMuted(!isMuted);
     if (isMuted) {
       setVolume(savedVolume);
     } else {
@@ -23,11 +22,17 @@ const TrackPreview = ({ track, clearPreviewTrack }) => {
   };
 
   const handleVolumeChange = (e) => {
-    setVolume(e.target.value);
+    setVolume(Number.parseInt(e.target.value));
+  };
+
+  useEffect(() => {
     if (volume === 0) {
       setMuted(true);
+      if (savedVolume === 0) setSavedVolume(50);
+    } else {
+      setMuted(false);
     }
-  };
+  }, [volume]);
 
   return (
     <>
