@@ -4,21 +4,10 @@ import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 import "./VolumeSlider.css";
 
-const VolumeSlider = () => {
-  const [volume, setVolume] = React.useState(100);
-  const [isMuted, setMuted] = React.useState(false);
-
-  const onVolumeChange = (e) => {
-    setVolume(e.target.value);
-  };
-
-  const onMute = () => {
-    setMuted(!isMuted);
-  };
-
+const VolumeSlider = ({ volume, handleVolumeChange, isMuted, handleMute }) => {
   return (
     <div className="volume-slider">
-      <button onClick={onMute}>
+      <button onClick={handleMute}>
         <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
       </button>
       <input
@@ -26,7 +15,7 @@ const VolumeSlider = () => {
         min="0"
         max="100"
         value={volume}
-        onChange={onVolumeChange}
+        onChange={handleVolumeChange}
       />
     </div>
   );

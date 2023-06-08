@@ -4,7 +4,7 @@ import "./AudioPlayer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
-const AudioPlayer = ({ audioUrl }) => {
+const AudioPlayer = ({ audioUrl, volume }) => {
   const [isPlaying, setPlaying] = React.useState(true);
 
   const audioRef = useRef();
@@ -32,6 +32,10 @@ const AudioPlayer = ({ audioUrl }) => {
   const handlePlayPause = (e) => {
     setPlaying(!isPlaying);
   };
+
+  useEffect(() => {
+    audioRef.current.volume = volume / 100;
+  }, [volume]);
 
   useEffect(() => {
     if (isPlaying) {
