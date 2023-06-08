@@ -17,6 +17,10 @@
   height: 5px;
 }
 
+.volume-slider input:hover {
+  opacity: 1;
+}
+
 .volume-slider input::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 15px;
@@ -35,4 +39,8 @@
   cursor: pointer;
 
   transition: all 0.2s ease;
+}
+
+.volume-slider button:hover {
+  scale: 1.1;
 }
