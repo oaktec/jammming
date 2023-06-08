@@ -21,6 +21,10 @@ const TrackPreview = ({ track, clearPreviewTrack }) => {
     }
   };
 
+  const handleResume = () => {
+    if (isMuted) setVolume(savedVolume);
+  };
+
   const handleVolumeChange = (e) => {
     setVolume(Number.parseInt(e.target.value));
   };
@@ -36,9 +40,7 @@ const TrackPreview = ({ track, clearPreviewTrack }) => {
   }, [volume]);
 
   useEffect(() => {
-    if (isMuted) {
-      setVolume(savedVolume);
-    }
+    handleResume();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [track]);
 
@@ -56,7 +58,11 @@ const TrackPreview = ({ track, clearPreviewTrack }) => {
               {track.artist} | {track.album}
             </p>
           </div>
-          <AudioPlayer audioUrl={track.previewUrl} volume={volume} />
+          <AudioPlayer
+            audioUrl={track.previewUrl}
+            volume={volume}
+            handleResume={handleResume}
+          />
           <VolumeSlider
             volume={volume}
             isMuted={isMuted}
