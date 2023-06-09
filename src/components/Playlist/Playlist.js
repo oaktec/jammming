@@ -29,6 +29,13 @@ const Playlist = ({
 
   const highlightNameInput = () => {
     document.querySelector(".playlist-name").classList.add("highlight-input");
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      // mobile device
+      document.querySelector(".playlist-name").scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
   };
 
   const clearHighlightNameInput = () => {
@@ -51,14 +58,6 @@ const Playlist = ({
         className="playlist-name"
         placeholder="Enter Playlist Name"
       />
-      <Tracklist
-        tracks={playlistTracks}
-        listActionType="remove"
-        onActionClick={handleActionClick}
-        onPreviewClick={handlePreviewClick}
-        notification={notification}
-      />
-
       <div
         className="btn-wrapper"
         onMouseEnter={() => {
@@ -87,6 +86,13 @@ const Playlist = ({
           )}
         </button>
       </div>
+      <Tracklist
+        tracks={playlistTracks}
+        listActionType="remove"
+        onActionClick={handleActionClick}
+        onPreviewClick={handlePreviewClick}
+        notification={notification}
+      />
     </section>
   );
 };
