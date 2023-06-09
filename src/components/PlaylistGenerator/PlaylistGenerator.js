@@ -98,37 +98,41 @@ const PlaylistGenerator = () => {
   return (
     <main className="playlist-generator">
       {loggedIn ? (
-        <SearchArea
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          onSearchClick={search}
-          searching={searching}
-        />
+        <>
+          <SearchArea
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            onSearchClick={search}
+            searching={searching}
+          />
+          <SearchResults
+            addToPlaylist={addToPlaylist}
+            previewTrack={previewTrack}
+            searchResults={searchResults}
+            notification={
+              searchFailure ? { msg: "No results found!", type: "error" } : null
+            }
+          />
+          <Playlist
+            removeFromPlaylist={removeFromPlaylist}
+            previewTrack={previewTrack}
+            playlistTracks={playlistTracks}
+            playlistName={playlistName}
+            setPlaylistName={setPlaylistName}
+            onSaveClick={savePlaylist}
+            saving={saving}
+            notification={
+              saveSuccess ? { msg: "Saved!", type: "success" } : null
+            }
+          />
+          <TrackPreview
+            track={trackPreview}
+            clearPreviewTrack={clearPreviewTrack}
+          />
+        </>
       ) : (
         <LoginArea login={handleLoginClick} />
       )}
-      <SearchResults
-        addToPlaylist={addToPlaylist}
-        previewTrack={previewTrack}
-        searchResults={searchResults}
-        notification={
-          searchFailure ? { msg: "No results found!", type: "error" } : null
-        }
-      />
-      <Playlist
-        removeFromPlaylist={removeFromPlaylist}
-        previewTrack={previewTrack}
-        playlistTracks={playlistTracks}
-        playlistName={playlistName}
-        setPlaylistName={setPlaylistName}
-        onSaveClick={savePlaylist}
-        saving={saving}
-        notification={saveSuccess ? { msg: "Saved!", type: "success" } : null}
-      />
-      <TrackPreview
-        track={trackPreview}
-        clearPreviewTrack={clearPreviewTrack}
-      />
     </main>
   );
 };
