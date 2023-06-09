@@ -3,7 +3,7 @@
 
   display: grid;
   grid-template-columns: 120px 200px 1fr 200px 120px;
-  grid-template-rows: minmax(auto, 10vh);
+  grid-template-rows: minmax(75px, 10vh);
   grid-template-areas: "img info audio-player space volume";
   gap: 0.5rem;
   background-color: rgba(0, 0, 0, 0.7);
