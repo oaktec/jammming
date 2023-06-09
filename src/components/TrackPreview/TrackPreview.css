@@ -62,3 +62,28 @@ button.close-btn {
 .track-preview .close-btn:active {
   color: #ff0000aa;
 }
+
+@media (max-width: 640px) {
+  .track-preview {
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    grid-template-columns: auto 1fr 1fr auto auto;
+    gap: 0;
+  }
+
+  .track-preview .track-info {
+    margin-left: 0.5rem;
+    margin-right: 0.2rem;
+  }
+
+  .track-preview img {
+    margin: 0;
+    padding: 0;
+  }
+
+  .track-preview .close-btn {
+    top: 4px;
+    right: 4px;
+  }
+}

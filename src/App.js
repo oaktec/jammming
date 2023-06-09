@@ -14,9 +14,7 @@ function App() {
           Ja<span>mmm</span>ing
         </h1>
       </header>
-      <main>
-        <PlaylistGenerator />
-      </main>
+      <PlaylistGenerator />
     </div>
   );
 }

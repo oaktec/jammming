@@ -1,8 +1,7 @@
 .playlist-generator {
-  height: 100%;
   display: grid;
   box-sizing: border-box;
-  width: 100vw;
+  max-width: 100vw;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
@@ -10,7 +9,7 @@
     "Tracklist Playlist"
     "TrackPreview TrackPreview";
   grid-gap: 30px;
-  flex: 1;
+  min-height: 0;
 }
 
 .result-block {
@@ -19,8 +18,9 @@
   border-radius: 8px;
   background-color: rgba(24, 23, 46, 0.9);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  overflow: auto;
   width: 95%;
+  overflow: auto;
+  min-height: 0;
 }
 
 @media (max-width: 640px) {
@@ -32,13 +32,14 @@
       "Tracklist"
       "Playlist"
       "TrackPreview";
+    min-height: 90vh;
   }
 
   .result-block {
     width: 90%;
     max-width: 90%;
     min-height: 200px;
-    max-height: 300px;
+    max-height: max(50vh, 300px);
     justify-self: center;
     padding: 8px;
   }

@@ -96,7 +96,7 @@ const PlaylistGenerator = () => {
   };
 
   return (
-    <div className="playlist-generator">
+    <main className="playlist-generator">
       {loggedIn ? (
         <SearchArea
           searchTerm={searchTerm}
@@ -129,7 +129,7 @@ const PlaylistGenerator = () => {
         track={trackPreview}
         clearPreviewTrack={clearPreviewTrack}
       />
-    </div>
+    </main>
   );
 };
 

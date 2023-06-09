@@ -2,12 +2,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 html,
 body {
   margin: 0;
-  height: 100%;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -20,17 +21,17 @@ body {
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: max(4.5rem, 10vh) 1fr;
+  /* max-height: 100vh; */
   height: 100vh;
 }
 
 header {
+  grid-row: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 4.5rem;
-  height: 10vh;
   color: #ecf2ff;
   padding: 1px 50px;
   background-color: #18172e;
@@ -53,10 +54,7 @@ header img {
 }
 
 main {
-  /* flex: 1; */
-  display: flex;
-  flex-direction: column;
-  height: 90vh;
+  grid-row: 2;
 }
 
 ::-webkit-scrollbar {
