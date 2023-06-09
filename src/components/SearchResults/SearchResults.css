@@ -1,7 +1,8 @@
 .search-results {
   grid-area: Tracklist;
-  justify-self: right;
-  width: 500px;
+  justify-self: flex-end;
+  width: 100%;
+  height: 100%;
 }
 
 .search-results h2 {
@@ -12,4 +13,15 @@
   padding: 16px;
   margin: 0;
   border-bottom: 4px solid #655dbb;
+}
+
+@media (max-width: 640px) {
+  .search-results {
+    justify-self: center;
+  }
+
+  .search-results h2 {
+    text-align: center;
+    padding: 8px;
+  }
 }

@@ -64,3 +64,9 @@
 .track button.preview-track-btn:active {
   color: #1db954aa;
 }
+
+@media (max-width: 640px) {
+  .track-info {
+    padding: 0.5rem;
+  }
+}

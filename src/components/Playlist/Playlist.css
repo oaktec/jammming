@@ -23,7 +23,10 @@ input.playlist-name {
   display: flex;
   justify-content: center;
   align-self: center;
-  width: 24rem;
+  /* ensures big enough to fire mouseLeave event */
+  width: auto;
+  padding: 5px 0;
+  padding-inline: 0.2rem;
 }
 
 input.highlight-input {
