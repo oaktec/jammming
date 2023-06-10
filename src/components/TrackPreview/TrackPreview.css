@@ -63,7 +63,7 @@ button.close-btn {
   color: #ff0000aa;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 800px) {
   .track-preview {
     position: fixed;
     bottom: 0;
