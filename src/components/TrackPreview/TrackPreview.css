@@ -70,6 +70,7 @@ button.close-btn {
     background-color: rgba(0, 0, 0, 0.9);
     grid-template-columns: auto 1fr 1fr auto auto;
     gap: 0;
+    width: 100%;
   }
 
   .track-preview .track-info {
