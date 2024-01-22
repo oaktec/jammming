@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/jammming/static/css/main.332935f2.css",
-    "main.js": "/jammming/static/js/main.1eb48cd0.js",
+    "main.css": "/jammming/static/css/main.5aa8f5d5.css",
+    "main.js": "/jammming/static/js/main.bd1b82b2.js",
     "static/media/background.png": "/jammming/static/media/background.3e2f53060f8e49474ebb.png",
     "static/media/Spotify_Logo_RGB_White.png": "/jammming/static/media/Spotify_Logo_RGB_White.f48fb565509bf23854a8.png",
     "index.html": "/jammming/index.html",
-    "main.332935f2.css.map": "/jammming/static/css/main.332935f2.css.map",
-    "main.1eb48cd0.js.map": "/jammming/static/js/main.1eb48cd0.js.map"
+    "main.5aa8f5d5.css.map": "/jammming/static/css/main.5aa8f5d5.css.map",
+    "main.bd1b82b2.js.map": "/jammming/static/js/main.bd1b82b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.332935f2.css",
-    "static/js/main.1eb48cd0.js"
+    "static/css/main.5aa8f5d5.css",
+    "static/js/main.bd1b82b2.js"
   ]
 }
