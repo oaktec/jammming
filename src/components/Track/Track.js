@@ -23,6 +23,8 @@ const Track = ({
     onPreviewClick(index);
   };
 
+  const trackMissingPreview = !track.previewUrl;
+
   return (
     <div className="track">
       <div className="track-info">
@@ -31,9 +33,22 @@ const Track = ({
           {track.artist} | {track.album}
         </p>
       </div>
-      <button onClick={handlePreviewClick} className="preview-track-btn">
-        <FontAwesomeIcon icon={faVolumeHigh} />
-      </button>
+      {trackMissingPreview ? (
+        <button
+          disabled
+          className="preview-track-btn preview-track-btn-disabled"
+        >
+          <FontAwesomeIcon icon={faVolumeHigh} color="gray" />
+        </button>
+      ) : (
+        <button
+          onClick={handlePreviewClick}
+          className="preview-track-btn"
+          disabled={trackMissingPreview}
+        >
+          <FontAwesomeIcon icon={faVolumeHigh} />
+        </button>
+      )}
       <button onClick={handleActionClick} className="action-btn">
         <FontAwesomeIcon icon={actionDisplay === "add" ? faPlus : faMinus} />
       </button>
